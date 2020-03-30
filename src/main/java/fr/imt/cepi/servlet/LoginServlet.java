@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
                     logger.info("Utilisateur trouvé :" + utilisateur);
                     HttpSession session = request.getSession();
                     session.setAttribute("utilisateur", utilisateur);
-                    response.sendRedirect("home.jsp");
+                    response.sendRedirect("New_Event.html");
                 } else {
                     RequestDispatcher rd = request.getRequestDispatcher("/login.html");
                     PrintWriter out = response.getWriter();
