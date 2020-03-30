@@ -1,9 +1,6 @@
 package fr.imt.cepi.servlet;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.log4j.Logger;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 @WebServlet(name = "Register", urlPatterns = { "/Register" })
 public class RegisterServlet extends HttpServlet {
@@ -26,6 +25,7 @@ public class RegisterServlet extends HttpServlet {
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		String nom = request.getParameter("nom");
+		String chambre = request.getParameter("chambre");
 		String errorMsg = null;
 		if (login == null || login.equals("")) {
 			errorMsg = "Le login est obligatoire.";
@@ -46,10 +46,11 @@ public class RegisterServlet extends HttpServlet {
 			Connection con = (Connection) getServletContext().getAttribute("DBConnection");
 			PreparedStatement ps = null;
 			try {
-				ps = con.prepareStatement("insert into utilisateurs(nom, login, password) values (?,?,?)");
+				ps = con.prepareStatement("insert into utilisateurs(nom, login, password, chambre) values (?,?,?,?)");
 				ps.setString(1, nom);
 				ps.setString(2, login);
 				ps.setString(3, password);
+				ps.setString(4, chambre);
 
 				ps.execute();
 
