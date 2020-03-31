@@ -15,6 +15,7 @@
             src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script
             src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="css/my.css" rel="stylesheet">
     <title>Création event</title>
 </head>
 <body>
@@ -23,7 +24,14 @@
         <div class="col-md-6 login-form">
             <h3>Inscription Event</h3>
             <form action="New_Event" method="post">
-
+                <div class="form-group">
+                    <input name="organisateur" type="text" class="form-control"
+                           placeholder="Nom de l'organisateur" value=""/>
+                </div>
+                <div class="form-group">
+                    <input name="typeevent" type="text" class="form-control"
+                           placeholder="Type d'évenement" value=""/>
+                </div>
                 <div class="form-group">
                     <input name="description" type="text" class="form-control"
                            placeholder="Description" value=""/>
@@ -37,7 +45,7 @@
                            placeholder="Horaire" value=""/>
                 </div>
                 <div class="form-group">
-                    <input type="file" name="fic" size=50 />
+                    <input type="file" name="image" />
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btnSubmit" value="Envoyer" name="connect"/>

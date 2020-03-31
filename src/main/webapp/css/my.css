@@ -1,3 +1,7 @@
+body{
+    background-color: #F7F1EA
+}
+
 .login-container{
     margin-top: 5%;
     margin-bottom: 5%;
@@ -8,7 +12,7 @@
 }
 .login-form h3{
     text-align: center;
-    color: #333;
+    color: #123F63;
 }
 
 .login-container form{
