@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<%@page import="fr.imt.cepi.util.Utilisateur" %>
-<%@ page import="fr.imt.cepi.util.Liste_Event" %>
+<%@page import="fr.imt.cepi.util.Evenement" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -24,24 +23,19 @@
 <body>
 
 <%
-    Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
-    Liste_Event liste = (Liste_Event) session.getAttribute("liste");
+    Evenement event = (Evenement) session.getAttribute("event");
 %>
 
-
-
 <div class="jumbotron">
-    <h1 class="display-4">Bonjour <%=user.getNom()%>
-    </h1>
+    <h1 class="display-4">Event : <%=event.getType_event()%> <%=event.getOrganisateur()%> </h1>
+    <h2 class="display-3">Description : <%=event.getDescription()%></h2>
+    <h2 class="display-3">Horaire : <%=event.getHoraire()%></h2>
+    <h2 class="display-3">Prix : <%=event.getPrix()%></h2>
 </div>
 
-<div class="jumbotron">
-    <h1 class="display-4">Liste evenement : </h1>
-    <h2 class="display-5"> <%=liste.getEvent()%> </h2>
-</div>
 
 <div class="bouton">
-    <a href="New_Event.html">Creer un event</a>
+    <a href="modify_event.html">Modifier un event</a>
 </div>
 
 </body>

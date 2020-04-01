@@ -1,5 +1,6 @@
 package fr.imt.cepi.servlet;
 
+import fr.imt.cepi.util.Liste_Event;
 import fr.imt.cepi.util.Utilisateur;
 import org.apache.log4j.Logger;
 
@@ -47,7 +48,7 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = null;
             try {
                 ps = con.prepareStatement(
-                        "select idutilisateur, nom, login from utilisateurs where login=? and password=? limit 1");
+                        "select idutilisateur, nom, login from tst.utilisateurs where login=? and password=? limit 1");
                 ps.setString(1, login);
                 ps.setString(2, password);
                 rs = ps.executeQuery();
@@ -55,10 +56,12 @@ public class LoginServlet extends HttpServlet {
                 if (rs != null && rs.next()) {
                     Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), rs.getString("login"),
                             rs.getInt("idutilisateur"));
+                    Liste_Event liste = new Liste_Event(request, response);
                     logger.info("Utilisateur trouvé :" + utilisateur);
                     HttpSession session = request.getSession();
                     session.setAttribute("utilisateur", utilisateur);
-                    response.sendRedirect("New_Event.html");
+                    session.setAttribute("liste", liste);
+                    response.sendRedirect("home.jsp");
                 } else {
                     RequestDispatcher rd = request.getRequestDispatcher("/login.html");
                     PrintWriter out = response.getWriter();
@@ -73,6 +76,7 @@ public class LoginServlet extends HttpServlet {
                 throw new ServletException("Problème d'accès à la base de données");
             } finally {
                 try {
+                    assert rs != null;
                     rs.close();
                     ps.close();
                 } catch (SQLException e) {
