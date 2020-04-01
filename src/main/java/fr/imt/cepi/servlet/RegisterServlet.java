@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
 			Connection con = (Connection) getServletContext().getAttribute("DBConnection");
 			PreparedStatement ps = null;
 			try {
-				ps = con.prepareStatement("insert into utilisateurs(nom, login, password, chambre) values (?,?,?,?)");
+				ps = con.prepareStatement("insert into tst.utilisateurs(nom, login, password, chambre) values (?,?,?,?)");
 				ps.setString(1, nom);
 				ps.setString(2, login);
 				ps.setString(3, password);
@@ -61,12 +61,14 @@ public class RegisterServlet extends HttpServlet {
 				request.setAttribute("message",
 						"<font color=green>Enregistrement effectué avec succès, veuillez vous identifier.</font>");
 				rd.include(request, response);
+
 			} catch (SQLException e) {
 				e.printStackTrace();
 				logger.error("Problème avec la base de données");
 				throw new ServletException("Problème d'accès à la base de données.");
 			} finally {
 				try {
+					assert ps != null;
 					ps.close();
 				} catch (SQLException e) {
 					logger.error("Erreur lors de la fermeture du statement");

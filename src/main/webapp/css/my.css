@@ -11,6 +11,7 @@ body{
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     border-radius: 2rem;
 }
+
 .login-form h3{
     text-align: center;
     color: #123F63;
@@ -36,4 +37,17 @@ body{
     color: #0062cc;
     font-weight: 600;
     text-decoration: none;
+}
+
+
+.bouton {
+    display:block;
+    width:150px;
+    line-height:50px;
+    text-align:center;
+    vertical-align:middle;
+    background-color: #FABB5A;
+    border-radius: 1rem;
+    text-decoration:none;
+    margin-left: 5%;
 }

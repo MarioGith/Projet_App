@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = null;
             try {
                 ps = con.prepareStatement(
-                        "select idutilisateur, nom, login from utilisateurs where login=? and password=? limit 1");
+                        "select idutilisateur, nom, login from tst.utilisateurs where login=? and password=? limit 1");
                 ps.setString(1, login);
                 ps.setString(2, password);
                 rs = ps.executeQuery();
@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
                     logger.info("Utilisateur trouvé :" + utilisateur);
                     HttpSession session = request.getSession();
                     session.setAttribute("utilisateur", utilisateur);
-                    response.sendRedirect("New_Event.html");
+                    response.sendRedirect("home.jsp");
                 } else {
                     RequestDispatcher rd = request.getRequestDispatcher("/login.html");
                     PrintWriter out = response.getWriter();
@@ -73,6 +73,7 @@ public class LoginServlet extends HttpServlet {
                 throw new ServletException("Problème d'accès à la base de données");
             } finally {
                 try {
+                    assert rs != null;
                     rs.close();
                     ps.close();
                 } catch (SQLException e) {
