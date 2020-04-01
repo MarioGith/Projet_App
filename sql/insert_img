@@ -1,0 +1,4 @@
+ALTER TABLE tst.evenement
+    ADD image MEDIUMBLOB NOT NULL;
+ALTER TABLE tst.evenement
+    ADD horaire varchar(20) NOT NULL;

@@ -42,7 +42,7 @@ public class TestWeb extends HttpServlet {
             Connection con = (Connection) getServletContext().getAttribute("DBConnection");
             PreparedStatement ps = null;
             try {
-                ps = con.prepareStatement("insert into event(descri, prix, horaire) values (?,?,?)");
+                ps = con.prepareStatement("insert into event(descri, prix, horaire, image) values (?,?,?)");
                 ps.setString(1, description);
                 ps.setString(2, prix);
                 ps.setString(3, horaire);

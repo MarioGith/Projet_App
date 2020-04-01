@@ -1,8 +1,0 @@
-CREATE TABLE tst.images (
-    idimg INT NOT NULL AUTO_INCREMENT ,
-    nomimg VARCHAR( 50 ) NOT NULL ,
-    tailleimg VARCHAR( 25 ) NOT NULL ,
-    typeimg VARCHAR( 25 ) NOT NULL ,
-    blobimg BLOB NOT NULL ,
-    PRIMARY KEY ( idimg )
-)
