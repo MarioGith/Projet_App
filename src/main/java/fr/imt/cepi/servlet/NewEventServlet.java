@@ -1,5 +1,6 @@
 package fr.imt.cepi.servlet;
 
+import fr.imt.cepi.util.Liste_Event;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -56,11 +58,11 @@ public class NewEventServlet extends HttpServlet {
 
                 logger.info("Event crée avec description"+description);
 
-                // forward to acceuil page
-                RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
-                request.setAttribute("message",
-                        "<font color=green>Enregistrement effectué avec succès</font>");
-                rd.include(request, response);
+                HttpSession session = request.getSession();
+                Liste_Event liste = new Liste_Event(request, response);
+                session.setAttribute("liste", liste);
+                response.sendRedirect("home.jsp");
+
 
             } catch (SQLException e) {
                 e.printStackTrace();
