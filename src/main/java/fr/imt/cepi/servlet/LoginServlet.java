@@ -1,5 +1,6 @@
 package fr.imt.cepi.servlet;
 
+import fr.imt.cepi.util.Liste_Event;
 import fr.imt.cepi.util.Utilisateur;
 import org.apache.log4j.Logger;
 
@@ -55,9 +56,11 @@ public class LoginServlet extends HttpServlet {
                 if (rs != null && rs.next()) {
                     Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), rs.getString("login"),
                             rs.getInt("idutilisateur"));
+                    Liste_Event liste = new Liste_Event(request, response);
                     logger.info("Utilisateur trouvé :" + utilisateur);
                     HttpSession session = request.getSession();
                     session.setAttribute("utilisateur", utilisateur);
+                    session.setAttribute("liste", liste);
                     response.sendRedirect("home.jsp");
                 } else {
                     RequestDispatcher rd = request.getRequestDispatcher("/login.html");
