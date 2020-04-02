@@ -30,7 +30,7 @@
             <h3>Remplissez tous les champs pour vous enregistrer</h3>
             <form action="Register" method="post">
                 <div class="form-group">
-                    <input name="email" type="text" class="form-control"
+                    <input name="email" type="email" class="form-control"
                            placeholder="Email" value=""/>
                 </div>
                 <div class="form-group">
