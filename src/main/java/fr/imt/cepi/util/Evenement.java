@@ -1,6 +1,11 @@
 package fr.imt.cepi.util;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Evenement implements Serializable {
 
@@ -12,6 +17,7 @@ public class Evenement implements Serializable {
 	private final String description;
 	private final String prix;
 	private final String horaire;
+	private String nbparticipants = "0";
 
 	public Evenement(String organisateur, String type_event, int id, String description, String prix, String horaire) {
 		this.organisateur = organisateur;
@@ -20,7 +26,35 @@ public class Evenement implements Serializable {
 		this.description = description;
 		this.prix = prix;
 		this.horaire = horaire;
+
+
 	}
+
+	public void setNbparticipants(HttpServletRequest request) {
+
+		Connection con = (Connection) request.getServletContext().getAttribute("DBConnection");
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = con.prepareStatement(
+					"SELECT COUNT(*) from lien where lien.idevent = this.id ");
+			rs = ps.executeQuery();
+
+			while(rs.next()){
+				this.nbparticipants=rs.getString(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+			}
+
+	public String getNbparticipants() {
+		return nbparticipants;
+	}
+
 
 	public int getId() {
 		return id;
