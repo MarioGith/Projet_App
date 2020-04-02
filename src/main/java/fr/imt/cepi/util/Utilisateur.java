@@ -8,11 +8,11 @@ public class Utilisateur implements Serializable {
 
 	private int id;
 	private final String nom;
-	private final String login;
+	private final String email;
 
-	public Utilisateur(String nom, String login, int id) {
+	public Utilisateur(String nom, String email, int id) {
 		this.nom = nom;
-		this.login = login;
+		this.email = email;
 		this.id = id;
 	}
 
@@ -29,12 +29,12 @@ public class Utilisateur implements Serializable {
 	}
 
 	public String getLogin() {
-		return login;
+		return email;
 	}
 
 	@Override
 	public String toString() {
-		return "Utilisateur [id=" + id + ", nom=" + nom + ", login=" + login + "]";
+		return "Utilisateur [id=" + id + ", nom=" + nom + ", login=" + email + "]";
 	}
 
 }
