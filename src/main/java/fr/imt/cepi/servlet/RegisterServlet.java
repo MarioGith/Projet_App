@@ -22,12 +22,12 @@ public class RegisterServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String login = request.getParameter("login");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String nom = request.getParameter("nom");
 		String chambre = request.getParameter("chambre");
 		String errorMsg = null;
-		if (login == null || login.equals("")) {
+		if (email == null || email.equals("")) {
 			errorMsg = "Le login est obligatoire.";
 		}
 		if (password == null || password.equals("")) {
@@ -46,15 +46,15 @@ public class RegisterServlet extends HttpServlet {
 			Connection con = (Connection) getServletContext().getAttribute("DBConnection");
 			PreparedStatement ps = null;
 			try {
-				ps = con.prepareStatement("insert into tst.utilisateurs(nom, login, password, chambre) values (?,?,?,?)");
+				ps = con.prepareStatement("insert into tst.utilisateurs(nom, email, password, chambre) values (?,?,?,?)");
 				ps.setString(1, nom);
-				ps.setString(2, login);
+				ps.setString(2, email);
 				ps.setString(3, password);
 				ps.setString(4, chambre);
 
 				ps.execute();
 
-				logger.info("Utilisateur enregistré avec le login " + login);
+				logger.info("Utilisateur enregistré avec l'email " + email);
 
 				// forward to login page to login
 				RequestDispatcher rd = request.getRequestDispatcher("/login.html");

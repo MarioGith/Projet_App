@@ -37,7 +37,7 @@
 
 <div class="jumbotron">
     <h1 class="display-4">Liste evenement : </h1>
-    <h2 class="display-5"> <%=liste.getEvent()%> </h2>
+    <h3 class="display-3"> <%=liste.getEvent()%> </h3>
 </div>
 
 <div class="bouton">

@@ -26,11 +26,11 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String login = request.getParameter("login");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
         String errorMsg = null;
-        if (login == null || login.equals("")) {
-            errorMsg = "Le login est obligatoire";
+        if (email == null || email.equals("")) {
+            errorMsg = "L'email est obligatoire";
         }
         if (password == null || password.equals("")) {
             errorMsg = "Le mot de passe est obligatoire";
@@ -48,8 +48,8 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = null;
             try {
                 ps = con.prepareStatement(
-                        "select idutilisateur, nom, login from tst.utilisateurs where login=? and password=? limit 1");
-                ps.setString(1, login);
+                        "select idutilisateur, nom, email from tst.utilisateurs where email=? and password=? limit 1");
+                ps.setString(1, email);
                 ps.setString(2, password);
                 rs = ps.executeQuery();
 
@@ -67,7 +67,7 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     RequestDispatcher rd = request.getRequestDispatcher("/login.html");
                     PrintWriter out = response.getWriter();
-                    logger.error("Utilisateur introuvable =" + login);
+                    logger.error("Utilisateur introuvable =" + email);
                     out.println(
                             "<font color=red>Aucun utilisateur connu avec ce login, veuillez vous enregistrer d'abord.</font>");
                     rd.include(request, response);
