@@ -25,7 +25,7 @@
 
 <%
     Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
-    Liste_Event liste = (Liste_Event) session.getAttribute("liste");
+    Liste_Event liste = (Liste_Event) request.getAttribute("liste");
 %>
 
 

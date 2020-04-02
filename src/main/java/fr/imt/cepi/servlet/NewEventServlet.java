@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -58,10 +57,10 @@ public class NewEventServlet extends HttpServlet {
 
                 logger.info("Event crée avec description"+description);
 
-                HttpSession session = request.getSession();
-                Liste_Event liste = new Liste_Event(request, response);
-                session.setAttribute("liste", liste);
-                response.sendRedirect("home.jsp");
+                Liste_Event liste = new Liste_Event(request);
+                request.setAttribute("liste", liste);
+                RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+                rd.include(request, response);
 
 
             } catch (SQLException e) {

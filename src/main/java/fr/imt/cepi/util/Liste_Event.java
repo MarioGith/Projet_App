@@ -1,7 +1,6 @@
 package fr.imt.cepi.util;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +14,7 @@ public class Liste_Event implements Serializable {
 
 	public ArrayList<Evenement> liste = new ArrayList();
 
-	public Liste_Event(HttpServletRequest request, HttpServletResponse response) {
+	public Liste_Event(HttpServletRequest request) {
 		ArrayList<Integer> id = new ArrayList();
 
 		Connection con = (Connection) request.getServletContext().getAttribute("DBConnection");
