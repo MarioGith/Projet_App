@@ -17,8 +17,13 @@
             src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="css/my.css" rel="stylesheet">
     <title>Page d'enregistrement</title>
+
+
 </head>
 <body>
+<% if (request.getAttribute("message")!=null) {%>
+<p><%=request.getAttribute("message")%></p><%}%>
+
 <div class="container login-container">
     <div class="row">
         <div class="col-md-6 login-form">
@@ -44,7 +49,7 @@
                     <input type="submit" class="btnSubmit" value="Enregistrer"/>
                 </div>
                 <div class="form-group">
-                    <a href="login.html" class="ForgetPwd">Déjà enregistré ?</a>
+                    <a href="Login" class="ForgetPwd">Déjà enregistré ?</a>
                 </div>
             </form>
         </div>

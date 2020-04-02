@@ -19,7 +19,13 @@
     <title>Connection</title>
     <link href="css/my.css" rel="stylesheet" >
 </head>
+
+
 <body>
+
+<% if (request.getAttribute("message")!=null) {%>
+<p><%=request.getAttribute("message")%></p><%}%>
+
 <div class="container login-container" >
     <div class="row">
         <div class="col-md-6 login-form">
@@ -27,7 +33,7 @@
             <form action="Login" method="post">
 
                 <div class="form-group">
-                    <input name="email" type="text" class="form-control"
+                    <input name="email" type="email" class="form-control"
                            placeholder="Email" value=""/>
                 </div>
                 <div class="form-group">
@@ -38,7 +44,7 @@
                     <input type="submit" class="btnSubmit" value="Se connecter" name="connect"/>
                 </div>
                 <div class="form-group">
-                    <a href="register.html" class="ForgetPwd">Pas encore enregistré ?</a>
+                    <a href="Register" class="ForgetPwd">Pas encore enregistré ?</a>
                 </div>
             </form>
         </div>

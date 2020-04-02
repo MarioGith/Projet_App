@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,9 +36,8 @@ public class LoginServlet extends HttpServlet {
         }
 
         if (errorMsg != null) {
-            RequestDispatcher rd = request.getRequestDispatcher("/login.html");
-            PrintWriter out = response.getWriter();
-            out.println("<font color=red>" + errorMsg + "</font>");
+            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+            request.setAttribute("message", "<font color=red>" + errorMsg + "</font>");
             rd.include(request, response);
         } else {
 
@@ -65,11 +63,9 @@ public class LoginServlet extends HttpServlet {
                     rd.include(request, response);
 
                 } else {
-                    RequestDispatcher rd = request.getRequestDispatcher("/login.html");
-                    PrintWriter out = response.getWriter();
+                    RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                     logger.error("Utilisateur introuvable =" + email);
-                    out.println(
-                            "<font color=red>Aucun utilisateur connu avec ce login, veuillez vous enregistrer d'abord.</font>");
+                    request.setAttribute("message", "<font color=red>" + "Utilisateur introuvable, veuillez vous enregistrer " + "</font>");
                     rd.include(request, response);
                 }
             } catch (SQLException e) {
@@ -89,4 +85,9 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher rd = req.getRequestDispatcher("/login.jsp");
+        rd.include(req, resp);
+    }
 }

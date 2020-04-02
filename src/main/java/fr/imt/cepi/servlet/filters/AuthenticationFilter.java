@@ -1,19 +1,13 @@
 package fr.imt.cepi.servlet.filters;
 
-import java.io.IOException;
+import org.apache.log4j.Logger;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.log4j.Logger;
+import java.io.IOException;
 
 @WebFilter("/AuthenticationFilter")
 public class AuthenticationFilter implements Filter {
@@ -39,7 +33,7 @@ public class AuthenticationFilter implements Filter {
 
         if (session == null && !(uri.endsWith("json") || uri.endsWith("png") || uri.endsWith("html") || uri.endsWith("Login") || uri.endsWith("Register"))) {
             logger.error("Unauthorized access request");
-            res.sendRedirect("login.html");
+            res.sendRedirect("login.jsp");
         } else {
             // poursuit par le prochain filtre
             chain.doFilter(request, response);

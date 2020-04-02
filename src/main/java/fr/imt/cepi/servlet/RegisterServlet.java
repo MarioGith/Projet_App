@@ -27,8 +27,8 @@ public class RegisterServlet extends HttpServlet {
 		String nom = request.getParameter("nom");
 		String chambre = request.getParameter("chambre");
 		String errorMsg = null;
-		if (email == null || email.equals("")) {
-			errorMsg = "Le login est obligatoire.";
+		if (email == null || email.equals("") || !email.contains("@mines-ales.")) {
+			errorMsg = "L'email des Mines est obligatoire.";
 		}
 		if (password == null || password.equals("")) {
 			errorMsg = "Le mot de passe est obligatoire";
@@ -57,7 +57,7 @@ public class RegisterServlet extends HttpServlet {
 				logger.info("Utilisateur enregistré avec l'email " + email);
 
 				// forward to login page to login
-				RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+				RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 				request.setAttribute("message",
 						"<font color=green>Enregistrement effectué avec succès, veuillez vous identifier.</font>");
 				rd.include(request, response);
@@ -78,4 +78,9 @@ public class RegisterServlet extends HttpServlet {
 
 	}
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher rd = req.getRequestDispatcher("/register.jsp");
+		rd.include(req, resp);
+	}
 }
