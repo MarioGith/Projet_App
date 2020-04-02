@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String errorMsg = null;
         if (email == null || email.equals("")) {
-            errorMsg = "Le login est obligatoire";
+            errorMsg = "L'email est obligatoire";
         }
         if (password == null || password.equals("")) {
             errorMsg = "Le mot de passe est obligatoire";
