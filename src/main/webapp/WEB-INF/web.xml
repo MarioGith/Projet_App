@@ -5,7 +5,7 @@
 
   <!-- page d'accueil -->
   <welcome-file-list>
-    <welcome-file>Login</welcome-file>
+    <welcome-file>login.html</welcome-file>
   </welcome-file-list>
   
   <!-- Paramètres de connexion à la base de données-->
