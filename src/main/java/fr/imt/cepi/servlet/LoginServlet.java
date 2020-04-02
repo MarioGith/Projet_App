@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
                 rs = ps.executeQuery();
 
                 if (rs != null && rs.next()) {
-                    Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), rs.getString("login"),
+                    Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), rs.getString("email"),
                             rs.getInt("idutilisateur"));
                     Liste_Event liste = new Liste_Event(request);
                     logger.info("Utilisateur trouvé :" + utilisateur);

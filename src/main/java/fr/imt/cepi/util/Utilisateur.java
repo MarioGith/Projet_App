@@ -34,7 +34,7 @@ public class Utilisateur implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [id=" + id + ", nom=" + nom + ", login=" + email + "]";
+		return "Utilisateur [id=" + id + ", nom=" + nom + ", email=" + email + "]";
 	}
 
 }
