@@ -5,7 +5,7 @@
 
   <!-- page d'accueil -->
   <welcome-file-list>
-    <welcome-file>login.html</welcome-file>
+    <welcome-file> Omarhtml.html</welcome-file>
   </welcome-file-list>
   
   <!-- Paramètres de connexion à la base de données-->
@@ -47,4 +47,11 @@
     <filter-name>AuthenticationFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+
+
+
+
 </web-app>
+
+
