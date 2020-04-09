@@ -1,5 +1,10 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
 body{
-    background-color: #F7F1EA
+    background-color: #F7F1EA;
+    width:100%;
 }
 
 .login-container{
@@ -51,3 +56,14 @@ body{
     text-decoration:none;
     margin-left: 5%;
 }
+
+.imageHome{
+    max-width: 30%;
+	height: auto;
+}
+
+
+
+
+
+

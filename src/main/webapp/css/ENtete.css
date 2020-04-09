@@ -17,11 +17,9 @@ nav
 	display: flex;
     width: 100%;
     justify-content: space-between;
-    align-content:center;
 	align-items: flex-end;
 	border-radius: 5px;
 }
-
 
 nav ul
 {
@@ -66,5 +64,4 @@ img
 {
 	max-width: 50%;
 	height: auto;
-	vertical-align:center;
 }
