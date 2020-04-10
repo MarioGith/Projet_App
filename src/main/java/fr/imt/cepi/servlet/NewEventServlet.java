@@ -5,10 +5,12 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -16,6 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@MultipartConfig
 @WebServlet(name = "New_Event", urlPatterns = {"/New_Event"})
 public class NewEventServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -29,6 +32,9 @@ public class NewEventServlet extends HttpServlet {
         String prix = request.getParameter("prix");
         String organisateur = request.getParameter("organisateur");
         String typeevent = request.getParameter("typeevent");
+        
+        Part filePart = request.getPart("image");
+        
         String errorMsg = null;
         if (description == null || horaire.equals("")) {
             errorMsg = "La description est obligatoire";
@@ -47,12 +53,13 @@ public class NewEventServlet extends HttpServlet {
             PreparedStatement ps = null;
             ResultSet rs = null;
             try {
-                ps = con.prepareStatement("insert into tst.evenement(description, prix, horaire, organisateur, type_event) values (?,?,?,?,?)");
+                ps = con.prepareStatement("insert into tst.evenement(description, prix, horaire, organisateur, type_event, image) values (?,?,?,?,?,?)");
                 ps.setString(1, description);
                 ps.setString(2, prix);
                 ps.setString(3, horaire);
                 ps.setString(4, organisateur);
                 ps.setString(5, typeevent);
+                ps.setBinaryStream(6,filePart.getInputStream());
                 ps.execute();
 
                 logger.info("Event crée avec description"+description);

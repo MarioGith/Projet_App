@@ -62,8 +62,24 @@ body{
 	height: auto;
 }
 
+.event{
+    padding: 5px;
+    margin: 0px;
+}
 
+.event img{
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    margi: 5px;
+}
 
+.event h3{
+    text-align: center;
+}
 
-
+input[type=submit] {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
 

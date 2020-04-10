@@ -36,21 +36,23 @@ public class Liste_Event implements Serializable {
 	}
 
 	public void setNbparticipantsliste(HttpServletRequest req){
-
 		for (Evenement e: liste){
 			e.setNbparticipants(req);
-
 		}
-
-
 	}
 
 
 
 	public String getEvent() {
 		String fin="";
-		for (int i=0;i<liste.size();i++){
-			fin+="#"+liste.get(i).getId()+", organisé par : "+liste.get(i).getOrganisateur() +", Nombre de participants : "+ liste.get(i).getNbparticipants() +  "<br>";
+		for (int i=0;i<liste.size();i++) {
+			fin+="<div class='event'>";
+			fin += "<img src=\"eventImage?id=" + liste.get(i).getId() + "\""+">";
+			fin += "<h3>";
+			fin += "#" + liste.get(i).getId() + ", organisé par : " + liste.get(i).getOrganisateur() + ", Nombre de participants : " + liste.get(i).getNbparticipants() + "<br>";
+			fin+="</h3>";
+			fin+="</div>";
+			fin+="<br>";
 		}
 		return fin;
 	}
