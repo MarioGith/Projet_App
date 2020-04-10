@@ -38,7 +38,8 @@ public class Evenement implements Serializable {
 
 		try {
 			ps = con.prepareStatement(
-					"SELECT COUNT(*) from lien where lien.idevent = this.id ");
+					"SELECT COUNT(*) from lien where lien.idevent = ? ");
+			ps.setInt(1, this.id);
 			rs = ps.executeQuery();
 
 			while(rs.next()){

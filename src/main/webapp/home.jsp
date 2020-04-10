@@ -26,6 +26,7 @@
 <%
     Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
     Liste_Event liste = (Liste_Event) request.getAttribute("liste");
+    liste.setNbparticipantsliste(request);
 %>
 
 <header>
@@ -61,6 +62,7 @@
 <div class="jumbotron">
     <h1 class="display-4">Liste evenement : </h1>
     <br>
+
     <%=liste.getEvent()%>
 </div>
 
