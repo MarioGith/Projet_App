@@ -32,9 +32,10 @@ public class NewEventServlet extends HttpServlet {
         String prix = request.getParameter("prix");
         String organisateur = request.getParameter("organisateur");
         String typeevent = request.getParameter("typeevent");
-        
-        Part filePart = request.getPart("image");
-        
+        String date = request.getParameter("date");
+        Part filePart = request.getPart("image_pre");
+        Part filePart2 = request.getPart("menu");
+
         String errorMsg = null;
         if (description == null || horaire.equals("")) {
             errorMsg = "La description est obligatoire";
@@ -53,13 +54,15 @@ public class NewEventServlet extends HttpServlet {
             PreparedStatement ps = null;
             ResultSet rs = null;
             try {
-                ps = con.prepareStatement("insert into tst.evenement(description, prix, horaire, organisateur, type_event, image) values (?,?,?,?,?,?)");
+                ps = con.prepareStatement("insert into tst.evenement(description, prix, date, organisateur, type_event, image_pre, horaire, menu) values (?,?,?,?,?,?,?,?)");
                 ps.setString(1, description);
                 ps.setString(2, prix);
-                ps.setString(3, horaire);
+                ps.setString(3,date);
                 ps.setString(4, organisateur);
                 ps.setString(5, typeevent);
                 ps.setBinaryStream(6,filePart.getInputStream());
+                ps.setString(7,horaire);
+                ps.setBinaryStream(8,filePart2.getInputStream());
                 ps.execute();
 
                 logger.info("Event crée avec description"+description);

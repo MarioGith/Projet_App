@@ -19,11 +19,11 @@ public class EventImageServlet extends HttpServlet {
         try {
 // Lecture du BLOB
             Connection con = (Connection) request.getServletContext().getAttribute("DBConnection");
-            PreparedStatement ps = con.prepareStatement("SELECT image FROM tst.evenement WHERE idevent = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT image_pre FROM tst.evenement WHERE idevent = ?");
             ps.setString(1, request.getParameter("id"));
             try (ResultSet rs = ps.executeQuery()) {
                 rs.next();
-                Blob blob = rs.getBlob("image");
+                Blob blob = rs.getBlob("image_pre");
                 if (blob != null) {
                     rs.close();
                     ps.close();
