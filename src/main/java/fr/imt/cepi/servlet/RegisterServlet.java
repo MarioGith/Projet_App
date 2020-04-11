@@ -43,16 +43,13 @@ public class RegisterServlet extends HttpServlet {
 		ResultSet rs = null;
 	// ICI on regarde si l'adresse email est déjà utilisée
 		try {
-			ps = con.prepareStatement("SELECT COUNT(*) from tst.utilisateurs where utilisateurs.email = ? ");
+			ps = con.prepareStatement("SELECT * from tst.utilisateurs where utilisateurs.email = ? ");
 			ps.setString(1, email);
 			rs = ps.executeQuery();
 
 			while(rs.next()) {
-				int a = Integer.parseInt( rs.getString(1));// Si on compare directement les strings on a toujours True
-				if (a !=0) {
-					errorMsg = "Un compte est déjà associé à cette email";
+				errorMsg = "Un compte est déjà associé à cette email";
 				}
-			}
 
 
 		} catch (SQLException e) {
@@ -69,8 +66,7 @@ public class RegisterServlet extends HttpServlet {
 			rd.include(request, response);
 		} else {
 
-		//	Connection con = (Connection) getServletContext().getAttribute("DBConnection");
-		//	PreparedStatement ps = null;
+
 			try {
 				ps = con.prepareStatement("insert into tst.utilisateurs(nom, email, password, chambre) values (?,?,?,?)");
 				ps.setString(1, nom);
