@@ -46,14 +46,14 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = null;
             try {
                 ps = con.prepareStatement(
-                        "select idutilisateur, nom, email from tst.utilisateurs where email=? and password=? limit 1");
+                        "select idutilisateur, nom, email, chambre, pp from tst.utilisateurs where email=? and password=? limit 1");
                 ps.setString(1, email);
                 ps.setString(2, password);
                 rs = ps.executeQuery();
 
                 if (rs != null && rs.next()) {
                     Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), rs.getString("email"),
-                            rs.getInt("idutilisateur"));
+                            rs.getInt("idutilisateur"),rs.getString("chambre"),rs.getBlob("pp"));
                     logger.info("Utilisateur trouvé :" + utilisateur);
                     HttpSession session = request.getSession();
                     session.setAttribute("utilisateur", utilisateur);
