@@ -1,5 +1,10 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
 body{
-    background-color: #F7F1EA
+    background-color: #F7F1EA;
+    width:100%;
 }
 
 .login-container{
@@ -51,3 +56,30 @@ body{
     text-decoration:none;
     margin-left: 5%;
 }
+
+.imageHome{
+    max-width: 30%;
+	height: auto;
+}
+
+.event{
+    padding: 5px;
+    margin: 0px;
+}
+
+.event img{
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    margi: 5px;
+}
+
+.event h3{
+    text-align: center;
+}
+
+input[type=submit] {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+

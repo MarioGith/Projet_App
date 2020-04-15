@@ -1,6 +1,7 @@
 package fr.imt.cepi.util;
 
 import java.io.Serializable;
+import java.sql.Blob;
 
 public class Utilisateur implements Serializable {
 
@@ -9,11 +10,15 @@ public class Utilisateur implements Serializable {
 	private int id;
 	private final String nom;
 	private final String email;
+	public String numChambre;
+	public Blob pp;
 
-	public Utilisateur(String nom, String email, int id) {
+	public Utilisateur(String nom, String email, int id, String num, Blob blob) {
 		this.nom = nom;
 		this.email = email;
 		this.id = id;
+		pp=blob;
+		numChambre=num;
 	}
 
 	public int getId() {
@@ -28,9 +33,13 @@ public class Utilisateur implements Serializable {
 		return nom;
 	}
 
-	public String getLogin() {
-		return email;
+	public String getEmail() { return email; }
+
+	public String getNumChambre() {
+		return numChambre;
 	}
+
+	public String getPp(){ return "<img src=\"eventImage?id=" + id + "\""+">";}
 
 	@Override
 	public String toString() {

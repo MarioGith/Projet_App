@@ -1,0 +1,18 @@
+.display-4 {
+
+    border-radius: 5px;
+
+}
+
+.display-3 {
+
+	border-radius: 5px;
+	text-align: center;
+}
+
+p {
+	border: 1px solid rgba(140,25,140,0.75);
+	border-radius: 5px;
+	text-align: center;
+	font-size: 30px;
+}

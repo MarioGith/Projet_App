@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<%@page import="fr.imt.cepi.util.Utilisateur" %>
-<%@ page import="fr.imt.cepi.util.Liste_Event" %>
+<%@page import="fr.imt.cepi.util.Liste_Search" %>
+<%@ page import="fr.imt.cepi.util.Utilisateur" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -25,8 +25,7 @@
 
 <%
     Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
-    Liste_Event liste = (Liste_Event) request.getAttribute("liste");
-    liste.setNbparticipantsliste(request);
+    Liste_Search liste = (Liste_Search) request.getAttribute("liste_search");
 %>
 
 <header>
@@ -55,15 +54,10 @@
 
 
 <div class="jumbotron">
-    <h1 class="display-4">Bonjour <%=user.getNom()%>
-    </h1>
-</div>
-
-<div class="jumbotron">
     <h1 class="display-4">Liste evenement : </h1>
     <br>
 
-    <%=liste.getEvent()%>
+    <%=liste.getEventSearch()%>
 </div>
 
 <footer class="footer ">
