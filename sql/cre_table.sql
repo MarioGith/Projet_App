@@ -19,7 +19,7 @@ CREATE TABLE tst.evenement (
     prix varchar(10) NOT NULL,
     PRIMARY KEY(idevent)
 
-)
+);
 CREATE TABLE tst.lien (
     id int(11) NOT NULL AUTO_INCREMENT,
     idevent int(11) NOT NULL,
