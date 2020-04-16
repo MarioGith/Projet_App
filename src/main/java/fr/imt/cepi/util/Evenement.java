@@ -6,29 +6,30 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 public class Evenement implements Serializable {
 
 	private static final long serialVersionUID = 6297385302078200511L;
 
 	private int id;
-	private int id_createur;
+	private int idcreateur;
 	private final String organisateur;
 	private final String type_event;
 	private final String description;
 	private final String prix;
-	private final String horaire;
+	private final Date date;
 	private String nbparticipants = "0";
 
-	public Evenement(String organisateur, String type_event, int id, String description, String prix, String horaire, int id_createur) {
+
+	public Evenement(String organisateur, String type_event, int id, String description, String prix, Date date, int idcreateur) {
 		this.organisateur = organisateur;
 		this.id = id;
 		this.type_event = type_event;
 		this.description = description;
 		this.prix = prix;
-		this.horaire = horaire;
-		this.id_createur = id_createur;
-
+		this.date = date;
+		this.idcreateur=idcreateur;
 	}
 
 	public void setNbparticipants(HttpServletRequest request) {
@@ -66,21 +67,15 @@ public class Evenement implements Serializable {
 		id = pId;
 	}
 
-	public String getOrganisateur() {
-		return organisateur;
-	}
+	public String getOrganisateur() {return organisateur;}
 
-	public String getType_event() {
-		return type_event;
-	}
+	public String getType_event() {return type_event;}
 
 	public String getDescription(){return description;}
 
 	public String getPrix(){return prix;}
 
-	public String getHoraire(){return horaire;}
-
-	public int getId_createur(){return id_createur;}
+	public int getIdcreateur(){return idcreateur;}
 
 	@Override
 	public String toString() {
