@@ -1,6 +1,7 @@
 package fr.imt.cepi.servlet;
 
 import fr.imt.cepi.util.Liste_Event;
+import fr.imt.cepi.util.Utilisateur;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,11 +24,12 @@ import java.sql.SQLException;
 @WebServlet(name = "New_Event", urlPatterns = {"/New_Event"})
 public class NewEventServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
     static Logger logger = Logger.getLogger(NewEventServlet.class);
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Utilisateur user1 = (Utilisateur) session.getAttribute("utilisateur");
         String description = request.getParameter("description");
         String horaire = request.getParameter("horaire");
         String prix = request.getParameter("prix");
@@ -54,7 +57,7 @@ public class NewEventServlet extends HttpServlet {
             PreparedStatement ps = null;
             ResultSet rs = null;
             try {
-                ps = con.prepareStatement("insert into tst.evenement(description, prix, date, organisateur, type_event, image_pre, horaire, menu) values (?,?,?,?,?,?,?,?)");
+                ps = con.prepareStatement("insert into tst.evenement(description, prix, date, organisateur, type_event, image_pre, horaire, menu, id_createur) values (?,?,?,?,?,?,?,?,?)");
                 ps.setString(1, description);
                 ps.setString(2, prix);
                 ps.setString(3,date);
@@ -63,6 +66,7 @@ public class NewEventServlet extends HttpServlet {
                 ps.setBinaryStream(6,filePart.getInputStream());
                 ps.setString(7,horaire);
                 ps.setBinaryStream(8,filePart2.getInputStream());
+                ps.setInt(9,user1.getId());
                 ps.execute();
 
                 logger.info("Event crée avec description"+description);

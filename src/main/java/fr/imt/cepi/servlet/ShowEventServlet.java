@@ -31,11 +31,11 @@ public class ShowEventServlet extends HttpServlet {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = con.prepareStatement("select organisateur,type_event,description,prix,horaire,idevent from tst.evenement where idevent = ?");
+            ps = con.prepareStatement("select organisateur,type_event,description,prix,horaire,idevent,id_createur from tst.evenement where idevent = ?");
             ps.setInt(1, NumEvenement);
             rs = ps.executeQuery();
             if (rs != null && rs.next()) {
-                Evenement evenement = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"), rs.getString("horaire"));
+                Evenement evenement = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"), rs.getString("horaire"),rs.getInt("id_createur"));
                 logger.info("Evenement trouvé" + evenement);
                 HttpSession session = request.getSession();
                 session.setAttribute("evenement", evenement);

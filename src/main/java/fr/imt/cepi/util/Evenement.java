@@ -12,6 +12,7 @@ public class Evenement implements Serializable {
 	private static final long serialVersionUID = 6297385302078200511L;
 
 	private int id;
+	private int id_createur;
 	private final String organisateur;
 	private final String type_event;
 	private final String description;
@@ -19,14 +20,14 @@ public class Evenement implements Serializable {
 	private final String horaire;
 	private String nbparticipants = "0";
 
-	public Evenement(String organisateur, String type_event, int id, String description, String prix, String horaire) {
+	public Evenement(String organisateur, String type_event, int id, String description, String prix, String horaire, int id_createur) {
 		this.organisateur = organisateur;
 		this.id = id;
 		this.type_event = type_event;
 		this.description = description;
 		this.prix = prix;
 		this.horaire = horaire;
-
+		this.id_createur = id_createur;
 
 	}
 
@@ -78,6 +79,8 @@ public class Evenement implements Serializable {
 	public String getPrix(){return prix;}
 
 	public String getHoraire(){return horaire;}
+
+	public int getId_createur(){return id_createur;}
 
 	@Override
 	public String toString() {
