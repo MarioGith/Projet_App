@@ -46,14 +46,21 @@ public class Liste_Event implements Serializable {
 	public String getEvent() {
 		String fin="";
 		for (int i=0;i<liste.size();i++) {
+			int y=i+1;
 			fin+="<div class='event'>";
 			fin += "<img src=\"eventImage?id=" + liste.get(i).getId() + "\""+">";
 			fin += "<h3>";
 			fin += "#" + liste.get(i).getId() + ", organisé par : " + liste.get(i).getOrganisateur() + ", Nombre de participants : " + liste.get(i).getNbparticipants() + "<br>";
 			fin+="</h3>";
+			fin+="<form action=\"ShowEvent\" method=\"post\">";
+			fin+="<button name=\"NumEvenement\" type=\"submit\" value =\""+Integer.toString(y)+"\">";
+			fin+="voir evenement";
+			fin+="</button>";
+			fin+="</form>";
 			fin+="</div>";
 			fin+="<br>";
 		}
 		return fin;
 	}
+
 }

@@ -23,7 +23,7 @@
 <body>
 
 <%
-    Evenement event = (Evenement) session.getAttribute("event");
+    Evenement event = (Evenement) session.getAttribute("evenement");
 %>
 
 <div class="jumbotron">
