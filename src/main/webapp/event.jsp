@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="fr.imt.cepi.util.Utilisateur" %>
 <%@page import="fr.imt.cepi.util.Evenement" %>
 <html>
 <head>
@@ -23,6 +24,7 @@
 <body>
 
 <%
+    Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
     Evenement event = (Evenement) session.getAttribute("evenement");
 %>
 
@@ -33,10 +35,12 @@
     <h2 class="display-3">Prix : <%=event.getPrix()%></h2>
 </div>
 
+<%if(event.getId_createur()== user.getId()){%>
+    <div class="bouton">
+        <a href="modify_event.html">Modifier un event</a>
+    </div>
+<%}%>
 
-<div class="bouton">
-    <a href="modify_event.html">Modifier un event</a>
-</div>
 
 </body>
 </html>
