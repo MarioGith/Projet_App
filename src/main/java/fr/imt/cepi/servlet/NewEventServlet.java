@@ -8,28 +8,27 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @MultipartConfig
 @WebServlet(name = "New_Event", urlPatterns = {"/New_Event"})
 public class NewEventServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+
     static Logger logger = Logger.getLogger(NewEventServlet.class);
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Utilisateur user1 = (Utilisateur) session.getAttribute("utilisateur");
+        Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
         String description = request.getParameter("description");
         String horaire = request.getParameter("horaire");
         String prix = request.getParameter("prix");
@@ -38,6 +37,7 @@ public class NewEventServlet extends HttpServlet {
         String date = request.getParameter("date");
         Part filePart = request.getPart("image_pre");
         Part filePart2 = request.getPart("menu");
+        String datec = date+horaire;
 
         String errorMsg = null;
         if (description == null || horaire.equals("")) {
@@ -55,18 +55,18 @@ public class NewEventServlet extends HttpServlet {
         } else {
             Connection con = (Connection) getServletContext().getAttribute("DBConnection");
             PreparedStatement ps = null;
-            ResultSet rs = null;
             try {
-                ps = con.prepareStatement("insert into tst.evenement(description, prix, date, organisateur, type_event, image_pre, horaire, menu, id_createur) values (?,?,?,?,?,?,?,?,?)");
+                Date datejava = new SimpleDateFormat("yyyy-MM-ddHH:mm").parse(datec);
+                java.sql.Date datesql = new java.sql.Date(datejava.getTime());
+                ps = con.prepareStatement("insert into tst.evenement(description, prix, datec, organisateur, type_event, image_pre, menu, id_createur) values (?,?,?,?,?,?,?,?)");
                 ps.setString(1, description);
                 ps.setString(2, prix);
-                ps.setString(3,date);
+                ps.setDate(3, datesql);
                 ps.setString(4, organisateur);
                 ps.setString(5, typeevent);
                 ps.setBinaryStream(6,filePart.getInputStream());
-                ps.setString(7,horaire);
-                ps.setBinaryStream(8,filePart2.getInputStream());
-                ps.setInt(9,user1.getId());
+                ps.setBinaryStream(7,filePart2.getInputStream());
+                ps.setInt(8, user.getId());
                 ps.execute();
 
                 logger.info("Event crée avec description"+description);
@@ -77,7 +77,7 @@ public class NewEventServlet extends HttpServlet {
                 rd.include(request, response);
 
 
-            } catch (SQLException e) {
+            } catch (SQLException | ParseException e) {
                 e.printStackTrace();
                 logger.error("Problème avec la base de données");
                 throw new ServletException("Problème d'accès à la base de données.");

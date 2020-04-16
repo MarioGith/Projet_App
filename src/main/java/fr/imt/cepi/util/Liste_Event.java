@@ -26,7 +26,7 @@ public class Liste_Event implements Serializable {
 					"select * from tst.evenement");
 			rs = ps.executeQuery();
 			while(rs.next()){
-				Evenement event = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"),rs.getString("horaire"),rs.getInt("id_createur"));
+				Evenement event = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"),rs.getDate("datec"), rs.getInt("id_createur"));
 				liste.add(event);
 			}
 		} catch (SQLException e) {
@@ -53,7 +53,8 @@ public class Liste_Event implements Serializable {
 			fin += "#" + liste.get(i).getId() + ", organisé par : " + liste.get(i).getOrganisateur() + ", Nombre de participants : " + liste.get(i).getNbparticipants() + "<br>";
 			fin+="</h3>";
 			fin+="<form action=\"ShowEvent\" method=\"post\">";
-			fin+="<button name=\"NumEvenement\" type=\"submit\" value =\""+Integer.toString(y)+"\">";
+			fin+="<input type='hidden' value='"+liste.get(i).getId()+"' name='idevent'/>";
+			fin+="<button name=\"NumEvenement\" type=\"submit\">";
 			fin+="voir evenement";
 			fin+="</button>";
 			fin+="</form>";

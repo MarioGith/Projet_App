@@ -1,0 +1,23 @@
+.display-1
+{
+text-align:center;
+border: 1px solid red;
+font-size: 15px;
+}
+
+.display-2
+{
+text-align:center;
+font-size: 30px;
+}
+
+.event{
+border: 1px solid blue;
+}
+
+.logoevent{
+border-radius: 50%;
+border: 1px solid green;
+max-width:10%;
+height:auto;
+}

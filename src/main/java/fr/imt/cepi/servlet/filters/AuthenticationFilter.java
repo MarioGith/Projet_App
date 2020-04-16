@@ -33,7 +33,9 @@ public class AuthenticationFilter implements Filter {
 
         if (session == null && !(uri.endsWith("json") || uri.endsWith("png") || uri.endsWith("html") || uri.endsWith("Login") || uri.endsWith("Register"))) {
             logger.error("Unauthorized access request");
-            res.sendRedirect("login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+            // ajout éventuel d'attributs dans la requête : request.setAttribute("message", "Veuillez vous identifier pour accéder à la page demandée");
+            rd.include(request, response);
         } else {
             // poursuit par le prochain filtre
             chain.doFilter(request, response);

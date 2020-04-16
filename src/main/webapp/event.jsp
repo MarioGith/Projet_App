@@ -25,17 +25,16 @@
 
 <%
     Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
-    Evenement event = (Evenement) session.getAttribute("evenement");
+    Evenement event = (Evenement) request.getAttribute("evenement");
 %>
 
 <div class="jumbotron">
     <h1 class="display-4">Event : <%=event.getType_event()%> <%=event.getOrganisateur()%> </h1>
     <h2 class="display-3">Description : <%=event.getDescription()%></h2>
-    <h2 class="display-3">Horaire : <%=event.getHoraire()%></h2>
     <h2 class="display-3">Prix : <%=event.getPrix()%></h2>
 </div>
 
-<%if(event.getId_createur()== user.getId()){%>
+<%if(event.getIdcreateur()== user.getId()){%>
     <div class="bouton">
         <a href="modify_event.html">Modifier un event</a>
     </div>
