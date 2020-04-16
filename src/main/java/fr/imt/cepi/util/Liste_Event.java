@@ -26,7 +26,7 @@ public class Liste_Event implements Serializable {
 					"select * from tst.evenement");
 			rs = ps.executeQuery();
 			while(rs.next()){
-				Evenement event = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"),rs.getString("horaire"));
+				Evenement event = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"),rs.getString("horaire"),rs.getInt("id_createur"));
 				liste.add(event);
 			}
 		} catch (SQLException e) {
