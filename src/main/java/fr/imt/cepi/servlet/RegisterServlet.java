@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @WebServlet(name = "Register", urlPatterns = { "/Register" })
@@ -37,14 +38,35 @@ public class RegisterServlet extends HttpServlet {
 			errorMsg = "Le nom est obligatoire";
 		}
 
+		Connection con = (Connection) getServletContext().getAttribute("DBConnection");
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+	// ICI on regarde si l'adresse email est déjà utilisée
+		try {
+			ps = con.prepareStatement("SELECT * from tst.utilisateurs where utilisateurs.email = ? ");
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+
+			while(rs.next()) {
+				errorMsg = "Un compte est déjà associé à cette email";
+				}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error("Problème avec la base de données");
+			throw new ServletException("Problème d'accès à la base de données.");
+		}
+
+
+
 		if (errorMsg != null) {
 			RequestDispatcher rd = request.getRequestDispatcher("/register.jsp");
 			request.setAttribute("message", "<font color=red>" + errorMsg + "</font>");
 			rd.include(request, response);
 		} else {
 
-			Connection con = (Connection) getServletContext().getAttribute("DBConnection");
-			PreparedStatement ps = null;
+
 			try {
 				ps = con.prepareStatement("insert into tst.utilisateurs(nom, email, password, chambre) values (?,?,?,?)");
 				ps.setString(1, nom);
