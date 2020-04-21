@@ -13,10 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-@WebServlet(name = "eventRegister", urlPatterns = {"/eventRegister"})
-public class EventRegisterServlet extends HttpServlet {
+@WebServlet(name = "eventUnregister", urlPatterns = {"/eventUnregister"})
+public class EventUnregisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     static Logger logger = Logger.getLogger(EventRegisterServlet.class);
@@ -33,14 +36,12 @@ public class EventRegisterServlet extends HttpServlet {
         int idUser = user.getId();
         String errorMsg = null;
 
-
-        if (request.getParameter("interesser") != null) {
+        if (request.getParameter("plusInteresser") != null) {
 
             Connection con = (Connection) getServletContext().getAttribute("DBConnection");
             PreparedStatement ps = null;
             PreparedStatement ps2 = null;
             ResultSet rs = null;
-            RequestDispatcher rd = null;
 
             try {
                 ps = con.prepareStatement("select organisateur,type_event,datec,description,prix,idevent,id_createur from tst.evenement where idevent=?");
@@ -57,16 +58,15 @@ public class EventRegisterServlet extends HttpServlet {
                 logger.error("Problème avec la base de données");
                 throw new ServletException("Problème d'accès à la base de données.");
             }
+
             try {
-
-
                 ps = con.prepareStatement("select * from tst.lien where idevent=? and idutilisateur=?");
                 ps.setInt(1, idEvent);
                 ps.setInt(2, idUser);
                 rs = ps.executeQuery();
 
-                while (rs.next()) {
-                    errorMsg = "Vous vous êtes déjà inscrit à cet évènement.";
+                while (!rs.next()) {
+                    errorMsg = "Vous ne vous étiez pas inscrit à cet évènement.";
                 }
 
             } catch (SQLException e) {
@@ -76,23 +76,23 @@ public class EventRegisterServlet extends HttpServlet {
             }
 
             if (errorMsg != null) {
-                rd = request.getRequestDispatcher("/event.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/event.jsp");
                 logger.error(errorMsg);
                 request.setAttribute("message", "<font color=red>" + errorMsg + "</font>");
                 rd.include(request, response);
-
             } else {
 
                 try {
-                    ps2 = con.prepareStatement("insert into tst.lien(idevent,idutilisateur) values (?,?)");
+                    ps2 = con.prepareStatement("delete from tst.lien where idevent = ? and idutilisateur = ?");
                     ps2.setInt(1, idEvent);
                     ps2.setInt(2, idUser);
                     ps2.execute();
 
-                    logger.info("Votre intérêt pour l'évènement est bien enregistré.");
+                    logger.info("Vous n'êtes plus intéressé par cet évènement.");
 
-                    rd = request.getRequestDispatcher("/event.jsp");
-                    request.setAttribute("message", "<font color=green>Enregistrement effectué avec succès</font>");
+                    RequestDispatcher rd = request.getRequestDispatcher("/event.jsp");
+                    request.setAttribute("message",
+                            "<font color=green>Vous n'êtes plus intéressé par cet évènement.</font>");
                     rd.include(request, response);
 
                 } catch (SQLException e) {

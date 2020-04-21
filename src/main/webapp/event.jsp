@@ -23,6 +23,9 @@
 </head>
 <body>
 
+<% if (request.getAttribute("message")!=null) {%>
+<p><%=request.getAttribute("message")%></p><%}%>
+
 <%
     Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
     Evenement event = (Evenement) request.getAttribute("evenement");
@@ -34,12 +37,29 @@
     <h2 class="display-3">Prix : <%=event.getPrix()%></h2>
 </div>
 
-<%if(event.getIdcreateur()== user.getId()){%>
+<%if(event.getIdcreateur() == user.getId()){%>
     <div class="bouton">
         <a href="modify_event.html">Modifier un event</a>
     </div>
 <%}%>
 
+<%
+    String id = String.valueOf(event.getId());
+%>
+
+<form action="eventRegister" method="post">
+    <div class="form-group">
+        <input type="hidden" name="idevenement" value= <%= id %> />
+        <input type="submit" class="btnSubmit" value="Interesser" name="interesser"/>
+    </div>
+</form>
+
+<form action="eventUnregister" method="post">
+    <div class="form-group">
+        <input type="hidden" name="idevenement" value= <%= id %> />
+        <input type="submit" class="btnSubmit" value="Plus interesser" name="plusInteresser"/>
+    </div>
+</form>
 
 </body>
 </html>
