@@ -1,8 +1,7 @@
 .display-1
 {
-text-align:center;
-border: 1px solid red;
-font-size: 15px;
+text-align:left;
+font-size: 30px;
 }
 
 .display-2
@@ -11,13 +10,22 @@ text-align:center;
 font-size: 30px;
 }
 
-.event{
-border: 1px solid blue;
-}
-
 .logoevent{
 border-radius: 50%;
-border: 1px solid green;
 max-width:10%;
 height:auto;
+margin-bottom:10px;
+}
+
+p{
+font-size:20px;
+}
+
+a{
+font-size:20px;
+}
+
+.bordure{
+border-top:1px solid black;
+border-radius:5px;
 }
