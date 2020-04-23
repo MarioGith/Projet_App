@@ -77,6 +77,8 @@ public class Evenement implements Serializable {
 
 	public int getIdcreateur(){return idcreateur;}
 
+	public Date getDate(){return date;}
+
 	@Override
 	public String toString() {
 		return "Event [id=" + id + ", organisateur=" + organisateur + ", type d'évenement=" + type_event + "]";

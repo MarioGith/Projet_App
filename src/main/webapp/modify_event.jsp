@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="fr.imt.cepi.util.Evenement" %>
 <html lang="french">
 <head>
     <meta charset="UTF-8">
@@ -14,39 +15,48 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
     <link href="css/my.css" rel="stylesheet">
-    <title>Création event</title>
+    <title>Modification event</title>
 </head>
 <body>
+<!--<%/**String id = request.getParameter("var");*/%>-->
+<%
+    Evenement event = (Evenement) request.getAttribute("evenement");
+%>
 <div class="container login-container">
     <div class="row">
         <div class="col-md-6 login-form">
-            <h3>Inscription Event</h3>
-            <form action="New_Event" method="post">
+            <h3>Modifier l'Event </h3>
+            <form action="Modify_Event" method="post">
                 <div class="form-group">
                     <input name="organisateur" type="text" class="form-control"
-                           placeholder="Nom de l'organisateur" value=""/>
+                           placeholder=<%=event.getOrganisateur()%> value=""/>
                 </div>
                 <div class="form-group">
                     <input name="typeevent" type="text" class="form-control"
-                           placeholder="Type d'évenement" value=""/>
+                           placeholder=<%=event.getType_event()%> value=""/>
                 </div>
                 <div class="form-group">
                     <input name="description" type="text" class="form-control "
-                           placeholder="Description" value=""/>
+                           placeholder=<%=event.getDescription()%> value=""/>
                 </div>
                 <div class="form-group">
                     <input name="prix" type="text" class="form-control"
-                           placeholder="Prix" value=""/>
+                           placeholder=<%=event.getPrix()%> value=""/>
                 </div>
                 <div class="form-group">
-                    <input name="horaire" type="text" class="form-control"
-                           placeholder="Horaire" value=""/>
+                    <input name="horaire" type="time" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <input type="file" name="image" />
+                    <input name="date" type="date" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btnSubmit" value="Envoyer" name="connect"/>
+                    <input type="file" name="image_pre" size="50" />
+                </div>
+                <div class="form-group">
+                    <input type="file" name="menu" size="50" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Modifier" name="modify"/>
                 </div>
             </form>
         </div>
