@@ -66,11 +66,11 @@
     <%=liste.getEvent()%>
 </div>
 
-<footer class="footer ">
-    <nav class="navbar navbar-expand-md navbar-dark bottom bg-dark " >
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Condition Général d'Utilisation</a></li>
+<footer class="footer">
+    <nav class="navbar  navbar-expand-sm navbar-dark bg-dark " >
+        <div class="navbar-collapse" >
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item"><a class="nav-link" href="#">Condition général d'utilisation</a></li>
                 <li class="nav-item" ><a class="nav-link" href="#">Nous contacter</a></li>
             </ul>
 

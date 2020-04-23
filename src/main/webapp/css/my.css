@@ -73,8 +73,8 @@ body{
 }
 
 .imageHome{
-    max-width: 30%;
-	height: auto;
+	height: 100px;
+    width: 100px;
 }
 
 .event{

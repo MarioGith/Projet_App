@@ -38,7 +38,6 @@ public class NewEventServlet extends HttpServlet {
         Part filePart = request.getPart("image_pre");
         Part filePart2 = request.getPart("menu");
         String datec = date+horaire;
-
         String errorMsg = null;
         if (description == null || horaire.equals("")) {
             errorMsg = "La description est obligatoire";
@@ -57,11 +56,11 @@ public class NewEventServlet extends HttpServlet {
             PreparedStatement ps = null;
             try {
                 Date datejava = new SimpleDateFormat("yyyy-MM-ddHH:mm").parse(datec);
-                java.sql.Date datesql = new java.sql.Date(datejava.getTime());
+                java.sql.Timestamp datesql = new java.sql.Timestamp(datejava.getTime());
                 ps = con.prepareStatement("insert into tst.evenement(description, prix, datec, organisateur, type_event, image_pre, menu, id_createur) values (?,?,?,?,?,?,?,?)");
                 ps.setString(1, description);
                 ps.setString(2, prix);
-                ps.setDate(3, datesql);
+                ps.setTimestamp(3, datesql);
                 ps.setString(4, organisateur);
                 ps.setString(5, typeevent);
                 ps.setBinaryStream(6,filePart.getInputStream());

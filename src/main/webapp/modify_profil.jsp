@@ -25,7 +25,6 @@
 <%
     Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
 %>
-
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <figure ><a class="navbar-brand" href="#"><img class="imageHome" src="images/logo.jpg"></a><!-- Ce sera le lien vers la page d'acceuil--></figure>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,18 +48,42 @@
 </header>
 
 <div class="jumbotron">
-    <h1 class="display-4">Hi : <%=user.getNom()%> </h1>
-    <h2 class="display-3">Email : <%=user.getEmail()%></h2>
-    <h2 class="display-3">Chambre : <%=user.getNumChambre()%></h2>
-    <h2 class="display-3">Pp : <%=user.getPp()%></h2>
+    <form action="ModifyProfil" method="post">
 
-    <form action="GoModifyProfil" method="post"><input class="nav-link" type="submit" value="Modifier Profil" name="connect"/></form>
+        <h1 class="display-4">Hi : <%=user.getNom()%> </h1>
+        <h2 class="display-3">Email : <%=user.getEmail()%></h2>
+
+        <h2 class="display-3">Chambre : </h2>
+
+        <div class="form-group">
+            <input name="chambre" type="txt" class="form-control"
+                   placeholder="Numéro de chambre" value=""/>
+        </div>
+
+        <h2 class="display-3">Mot de passe : </h2>
+
+        <div class="form-group">
+            <input name="password" type="txt" class="form-control"
+                   placeholder="Mot de passe" value=""/>
+        </div>
+
+        <h2 class="display-3">Pp : <%=user.getPp()%></h2>
+
+        <div class="form-group">
+            <input type="file" name="pp" size="50" />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btnSubmit" value="Modifier " name="connect"/>
+        </div>
+
+    </form>
 
 </div>
 
 <footer class="footer ">
     <nav class="navbar navbar-expand-md navbar-dark bottom bg-dark " >
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="#">Condition Général d'Utilisation</a></li>
                 <li class="nav-item" ><a class="nav-link" href="#">Nous contacter</a></li>
