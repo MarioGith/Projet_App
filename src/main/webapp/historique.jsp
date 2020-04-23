@@ -1,6 +1,5 @@
-<!DOCTYPE html>
 <%@page import="fr.imt.cepi.util.Utilisateur" %>
-<%@ page import="fr.imt.cepi.util.Liste_Event" %>
+<%@ page import="java.util.ArrayList" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -12,21 +11,20 @@
     <meta name="description" content="Example de servlet">
     <link rel="apple-touch-icon" href="images/icons/icon-152.png">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-            rel="stylesheet" id="bootstrap-css">
+          rel="stylesheet" id="bootstrap-css">
     <script
             src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script
             src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="css/my.css" rel="stylesheet">
 
-    <title>Accueil</title>
+    <title>Historique</title>
 </head>
 <body>
 
 <%
     Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
-    Liste_Event liste = (Liste_Event) request.getAttribute("liste");
-    liste.setNbparticipantsliste(request);
+    ArrayList<String> liste = (ArrayList) request.getAttribute("liste");
 %>
 
 <header>
@@ -43,8 +41,6 @@
                 <li class="nav-item"><a class="nav-link" href="New_Event.html">Créer un évènement</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Création Profil</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://www.cercle-des-eleves.fr/evenements/" >Calendrier</a></li>
-                <form action="Historique" method="post"><input class="nav-link" type="submit" value="Historique" name="connect"/></form>
-
 
             </ul>
             <form class="form-inline mt-2 mt-md-0" action="Search">
@@ -57,28 +53,26 @@
 
 
 <div class="jumbotron">
-    <h1 class="display-4">Bonjour <%=user.getNom()%>
-    </h1>
-</div>
-
-<div class="jumbotron">
-    <h1 class="display-4">Liste evenement : </h1>
+    <h1 class="display-4">Historique Menu : </h1>
     <br>
-
-    <%=liste.getEvent()%>
+    <%String fin="";
+        for (int i=0;i<liste.size();i++) {
+            fin+="<div class='menu'>";
+            fin+="<img src=\"eventMenuImage?id=" + liste.get(i) + "\""+">";
+            fin+="</div>";
+        }
+    %>
+    <%= fin%>
 </div>
 
-<footer class="footer">
-    <nav class="navbar  navbar-expand-sm navbar-dark bg-dark " >
-        <div class="navbar-collapse" >
-            <ul class="navbar-nav ml-auto ">
-                <li class="nav-item"><a class="nav-link" href="#">Condition général d'utilisation</a></li>
+<footer class="footer ">
+    <nav class="navbar navbar-expand-md navbar-dark bottom bg-dark " >
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Condition Général d'Utilisation</a></li>
                 <li class="nav-item" ><a class="nav-link" href="#">Nous contacter</a></li>
             </ul>
 
         </div>
     </nav>
 </footer>
-
-</body>
-</html>
