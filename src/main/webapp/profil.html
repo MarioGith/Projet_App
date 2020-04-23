@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<div id="MargePremier"></div>
+
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <figure ><a class="navbar-brand" href="#"><img class="imageHome" src="images/logo.jpg"></a><!-- Ce sera le lien vers la page d'acceuil--></figure>
@@ -43,12 +43,158 @@
 </nav>
 </header>
 
-<div class="jumbotron">
-    <h1 class="display-4">Hi : </h1>
-    <h2 class="display-3">Email :</h2>
-    <h2 class="display-3">Chambre : </h2>
-    <h2 class="display-3">Pp : </h2>
+<div id="MargePremier"></div>
+<div class="container login-container">
+    <div class="container">
+        <div class="row my-2">
+            <div class="col-lg-8 order-lg-2">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="" data-target="#profil" data-toggle="tab" class="nav-link active">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#historique" data-toggle="tab" class="nav-link">Historique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Paramètres</a>
+                    </li>
+                </ul>
+                <div class="tab-content py-4">
+                    <div class="tab-pane active" id="profil">
+                        <h5 class="mb-3">Informations personnelles</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <br/>
+                                <h6>Nom Prénom</h6>
+                                <br/>
+                                <h6>Adresse</h6>
+                                <br/>
+                                <h6>Numéro de chambre</h6>
+                                <br/>
 
+                            </div>
+                            <div class="col-md-12">
+                                <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Évenements inscrits</h5>
+                                <br/>
+                                <table class="table table-sm table-hover table-striped">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>Lundi 18h</strong> AfterWork de telle association <strong>Payé</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Mardi 18h</strong> Meuh Folle <strong>À payer</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Jeudi 18h</strong> AfterWork de telle association <strong>Payé</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Dimanche 18h</strong> Meuh Folle <strong>À payer</strong>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+
+                    <div class="tab-pane" id="historique">
+
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                            <tr>
+                                <td class="d-flex justify-content-between">
+                                    AW Tsiky <span>prix : 10€</span> <span class="font-weight-bold">01/01/2020</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="d-flex justify-content-between">
+                                    AW Tsiky <span>prix : 10€</span> <span class="font-weight-bold">01/01/2020</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="d-flex justify-content-between">
+                                    AW Tsiky <span>prix : 10€</span> <span class="font-weight-bold">01/01/2020</span>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tab-pane" id="edit">
+                        <form role="form">
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Nom</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="Nom">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Prénom</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="Prénom">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="email" value="email@mines-ales.org">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Adresse</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="" placeholder="Adresse">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Chambre</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="numéro chambre">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Mot de passe</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="password" value="11111122333">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Confirmer mot de passe</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="password" value="11111122333">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <input type="reset" class="btn btn-secondary" value="Cancel">
+                                    <input type="button" class="btn btn-primary" value="Save Changes">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 order-lg-1 text-center">
+                <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                <h6 class="mt-2">Changer sa photo de profil</h6>
+                <label class="custom-file ">
+                    <input type="file" id="file" class="custom-file-input">
+                    <span class="custom-file-control">Choisir fichier</span>
+                </label>
+            </div>
+        </div>
+    </div>
 </div>
 
 <footer class="footer ">
