@@ -38,9 +38,15 @@
 </div>
 
 <%if(event.getIdcreateur() == user.getId()){%>
-    <div class="bouton">
-        <a href="modify_event.html">Modifier un event</a>
-    </div>
+    <!--<div class="bouton">
+        <a href="modify_event.jsp?var=<%=event.getId()%>">Modifier un event</a>
+    </div>-->
+    <form action="Modify_Event1" method="post">
+        <input type="hidden" name="idevent" value= <%=event.getId()%> />
+        <button name="Modify" type="submit">
+            Modifier l'evenement
+        </button>
+    </form>
 <%}%>
 
 <%
