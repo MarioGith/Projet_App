@@ -75,9 +75,11 @@ public class Evenement implements Serializable {
 
 	public String getPrix(){return prix;}
 
-	public int getIdcreateur(){return idcreateur;}
+	public String getDate(){
+		return String.valueOf(date);
+	}
 
-	public Date getDate(){return date;}
+	public int getIdcreateur(){return idcreateur;}
 
 	@Override
 	public String toString() {

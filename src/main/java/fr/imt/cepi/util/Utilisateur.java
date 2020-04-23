@@ -39,7 +39,13 @@ public class Utilisateur implements Serializable {
 		return numChambre;
 	}
 
-	public String getPp(){ return "<img src=\"eventImage?id=" + id + "\""+">";}
+	public String getPp(){ return "<img src=\"profilImage?id=" + id + "\""+">";}
+
+	public void modifyNumChambre(String num) {
+		numChambre=num;
+	}
+
+	public void modifyPp(Blob ppm){ pp=ppm;}
 
 	@Override
 	public String toString() {

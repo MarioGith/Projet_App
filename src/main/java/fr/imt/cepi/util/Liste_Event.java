@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Liste_Event implements Serializable {
 
@@ -20,10 +21,15 @@ public class Liste_Event implements Serializable {
 		Connection con = (Connection) request.getServletContext().getAttribute("DBConnection");
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		Date utilDate = new Date();
+		java.sql.Timestamp maintenant= new java.sql.Timestamp(utilDate.getTime());
+		java.sql.Timestamp jourfin = new java.sql.Timestamp(utilDate.getTime()+1209600000);
 
 		try {
 			ps = con.prepareStatement(
-					"select * from tst.evenement");
+					"select * from tst.evenement where datec between ? and ? order by datec ASC");
+			ps.setTimestamp(1,maintenant);
+			ps.setTimestamp(2,jourfin);
 			rs = ps.executeQuery();
 			while(rs.next()){
 				Evenement event = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"),rs.getDate("datec"), rs.getInt("id_createur"));
@@ -44,6 +50,8 @@ public class Liste_Event implements Serializable {
 
 
 	public String getEvent() {
+		String s = liste.get(0).getDate();
+		System.out.println(s);
 		String fin="";
 		for (int i=0;i<liste.size();i++) {
 			int y=i+1;
