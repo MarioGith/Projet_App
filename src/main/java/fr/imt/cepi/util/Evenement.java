@@ -2,11 +2,7 @@ package fr.imt.cepi.util;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Date;
+import java.sql.*;
 
 public class Evenement implements Serializable {
 
@@ -18,11 +14,11 @@ public class Evenement implements Serializable {
 	private final String type_event;
 	private final String description;
 	private final String prix;
-	private final Date date;
+	private final Timestamp date;
 	private String nbparticipants = "0";
 
 
-	public Evenement(String organisateur, String type_event, int id, String description, String prix, Date date, int idcreateur) {
+	public Evenement(String organisateur, String type_event, int id, String description, String prix, Timestamp date, int idcreateur) {
 		this.organisateur = organisateur;
 		this.id = id;
 		this.type_event = type_event;
@@ -80,6 +76,11 @@ public class Evenement implements Serializable {
 	}
 
 	public int getIdcreateur(){return idcreateur;}
+
+	public String getImg(){ return "<img src=\"eventImage?id=" + id + "\""+"class=\"logoevent rounded mx-auto d-block\" alt=\"...\">";}
+
+	public String getMenu(){ return "<img src=\"eventMenuImage?id=" + id + "\""+"class=\"logoevent rounded mx-auto d-block\" alt=\"...\">";}
+
 
 	@Override
 	public String toString() {

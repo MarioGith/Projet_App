@@ -28,7 +28,6 @@
 %>
 
 <header>
-    <!-- Section pour accéder à toutes les pages -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <figure ><a class="navbar-brand" href="#"><img class="imageHome" src="images/logo.jpg"></a><!-- Ce sera le lien vers la page d'acceuil--></figure>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,14 +35,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <form action="GoHome" method="post"><input class="nav-link" type="submit" value="Acceuil" name="connect"/></form>
+                <form action="GoHome" method="post"><input class="nav-link" type="submit" value="Accueil" name="connect"/></form>
                 <form action="GoProfil" method="post"><input class="nav-link" type="submit" value="Profil" name="connect"/></form>
                 <li class="nav-item"><a class="nav-link" href="New_Event.html">Créer un évènement</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Création Profil</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://www.cercle-des-eleves.fr/evenements/" >Calendrier</a></li>
 
             </ul>
-            <form class="form-inline mt-2 mt-md-0" action="Search">
+            <form action="Search" class="form-inline mt-2 mt-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="recherche">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -66,13 +64,17 @@
 </div>
 
 <footer class="footer ">
-    <nav class="navbar navbar-expand-md navbar-dark bottom bg-dark " >
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Condition Général d'Utilisation</a></li>
+    <nav class="navbar bottom navbar-expand-sm navbar-dark bg-dark " >
+        <div class="navbar-collapse" >
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item"><a class="nav-link" href="#">Condition général d'utilisation</a></li>
                 <li class="nav-item" ><a class="nav-link" href="#">Nous contacter</a></li>
             </ul>
 
         </div>
     </nav>
 </footer>
+
+
+</body>
+</html>

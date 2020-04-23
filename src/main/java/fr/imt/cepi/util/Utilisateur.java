@@ -35,11 +35,9 @@ public class Utilisateur implements Serializable {
 
 	public String getEmail() { return email; }
 
-	public String getNumChambre() {
-		return numChambre;
-	}
+	public String getNumChambre() { return numChambre; }
 
-	public String getPp(){ return "<img src=\"profilImage?id=" + id + "\""+">";}
+	public String getPp(){ return "<img src=\"profilImage?id=" + id + "\" class=\"mx-auto img-fluid img-circle d-block\" alt=\"avatar\">";}
 
 	public void modifyNumChambre(String num) {
 		numChambre=num;

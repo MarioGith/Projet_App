@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @WebServlet(name = "eventRegister", urlPatterns = {"/eventRegister"})
 public class EventRegisterServlet extends HttpServlet {
@@ -47,7 +49,7 @@ public class EventRegisterServlet extends HttpServlet {
                 ps.setInt(1,idEvent);
                 rs = ps.executeQuery();
                 if (rs != null && rs.next()) {
-                    Evenement evenement = new Evenement(rs.getString("organisateur"), rs.getString("type_event"), rs.getInt("idevent"), rs.getString("description"), rs.getString("prix"), rs.getDate("datec"), rs.getInt("id_createur"));
+                    Evenement evenement = new Evenement(rs.getString("organisateur"), rs.getString("type_event"), rs.getInt("idevent"), rs.getString("description"), rs.getString("prix"), rs.getTimestamp("datec"), rs.getInt("id_createur"));
                     logger.info("Evenement trouvé" + evenement);
                     request.setAttribute("evenement", evenement);
                 }

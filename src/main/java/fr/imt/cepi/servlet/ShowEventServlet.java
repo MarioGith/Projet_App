@@ -35,7 +35,7 @@ public class ShowEventServlet extends HttpServlet {
             ps.setInt(1, NumEvenement);
             rs = ps.executeQuery();
             if (rs != null && rs.next()) {
-                Evenement evenement = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"), rs.getDate("datec"), rs.getInt("id_createur"));
+                Evenement evenement = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"), rs.getTimestamp("datec"), rs.getInt("id_createur"));
                 logger.info("Evenement trouvé" + evenement);
                 request.setAttribute("evenement", evenement);
                 RequestDispatcher rd = request.getRequestDispatcher("/event.jsp");

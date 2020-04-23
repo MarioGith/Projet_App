@@ -30,6 +30,10 @@ body{
     margin-bottom:110px;
 }
 
+.login-container form{
+    padding: 10%;
+}
+
 #MargePremier
 {
     margin-top:110px;

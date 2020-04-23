@@ -1,23 +1,21 @@
 package fr.imt.cepi.servlet;
 import fr.imt.cepi.util.Evenement;
 import fr.imt.cepi.util.Liste_Event;
-import fr.imt.cepi.util.Utilisateur;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @MultipartConfig
 @WebServlet(name = "Modify_Event1", urlPatterns = {"/Modify_Event1"})
@@ -40,7 +38,7 @@ public class ModifyEventServlet1 extends HttpServlet {
             ps.setInt(1, NumEvenement);
             rs = ps.executeQuery();
             if (rs != null && rs.next()) {
-                Evenement evenement = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"), rs.getDate("datec"), rs.getInt("id_createur"));
+                Evenement evenement = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"), rs.getTimestamp("datec"), rs.getInt("id_createur"));
                 logger.info("Evenement trouvé" + evenement);
                 request.setAttribute("evenement", evenement);
                 RequestDispatcher rd = request.getRequestDispatcher("/modify_event.jsp");

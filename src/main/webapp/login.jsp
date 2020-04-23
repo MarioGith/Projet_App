@@ -8,7 +8,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-title" content="Ma Servlet">
 	<meta name="description" content="Example de servlet">
-	<link rel="apple-touch-icon" href="images/icons/icon-152.png">    
+	<link rel="apple-touch-icon" href="images/icons/icon-152.png">
     <link
             href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
             rel="stylesheet" id="bootstrap-css">
@@ -17,7 +17,7 @@
     <script
             src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Connection</title>
-    <link href="css/my.css" rel="stylesheet" >
+    <link href="css/login.css" rel="stylesheet" >
 </head>
 
 
