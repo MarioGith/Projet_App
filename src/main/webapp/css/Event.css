@@ -1,7 +1,7 @@
 .display-4 {
 
     border-radius: 5px;
-
+    font-size:40px;
 }
 
 .display-3 {
@@ -11,8 +11,15 @@
 }
 
 p {
-	border: 1px solid rgba(140,25,140,0.75);
-	border-radius: 5px;
-	text-align: center;
+    margin-top:5px;
 	font-size: 30px;
+}
+
+.imgEvent{
+height:300px;
+width:auto;
+}
+
+.text1{
+font-size:30px;
 }
