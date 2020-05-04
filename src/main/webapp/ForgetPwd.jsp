@@ -16,7 +16,7 @@
             src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script
             src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Connection</title>
+    <title>Veuillez renseignez votre adresse mail</title>
     <link href="css/login.css" rel="stylesheet" >
 </head>
 
@@ -29,25 +29,19 @@
 <div class="container login-container" >
     <div class="row">
         <div class="col-md-6 login-form">
-            <h3>Connection</h3>
-            <form action="Login" method="post">
+            <h3>Veuillez remplir le formulaire pour changer votre mot de passe</h3>
+            <form action="sendmailnewpass" method="get">
 
                 <div class="form-group">
                     <input name="email" type="email" class="form-control"
                            placeholder="Email" value=""/>
                 </div>
                 <div class="form-group">
-                    <input name="password" type="password" class="form-control"
-                           placeholder="Mot de passe" value=""/>
+                    <input name="Newpass" type="password" class="form-control"
+                           placeholder="Nouveau mot de passe" value=""/>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btnSubmit" value="Se connecter" name="connect"/>
-                </div>
-                <div class="form-group">
-                    <a href="Register" class="ForgetPwd">Pas encore enregistré ?</a>
-                </div>
-                    <div class="form-group">
-                        <a href="ForgetPwd.jsp" class="ForgetPwd">Mot de pass oublié ?</a>
+                    <input type="submit" class="btnSubmit" value="OK" name="connect"/>
                 </div>
             </form>
         </div>
