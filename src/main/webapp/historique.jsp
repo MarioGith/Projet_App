@@ -1,6 +1,12 @@
+<!DOCTYPE html>
 <%@page import="fr.imt.cepi.util.Utilisateur" %>
-<%@ page import="java.util.ArrayList" %>
-<html>
+<%@ page import="fr.imt.cepi.util.Liste_Menu" %>
+<%
+    Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
+    Liste_Menu liste = (Liste_Menu) request.getAttribute("liste");
+%>
+
+<html lang="french">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,22 +16,16 @@
     <meta name="apple-mobile-web-app-title" content="Ma Servlet">
     <meta name="description" content="Example de servlet">
     <link rel="apple-touch-icon" href="images/icons/icon-152.png">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-          rel="stylesheet" id="bootstrap-css">
-    <script
-            src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script
-            src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="css/my.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
-    <title>Historique</title>
+    <link href="css/my.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+
+    <title>Accueil</title>
 </head>
 <body>
-
-<%
-    Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
-    ArrayList<String> liste = (ArrayList) request.getAttribute("liste");
-%>
 
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -37,6 +37,7 @@
             <ul class="navbar-nav mr-auto">
                 <form action="GoHome" method="post"><input class="nav-link" type="submit" value="Accueil" name="connect"/></form>
                 <form action="GoProfil" method="post"><input class="nav-link" type="submit" value="Profil" name="connect"/></form>
+                <form action="GoHistorique" method="post"><input class="nav-link" type="submit" value="Historique" name="connect"/></form>
                 <li class="nav-item"><a class="nav-link" href="New_Event.html">Créer un évènement</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://www.cercle-des-eleves.fr/evenements/" >Calendrier</a></li>
 
@@ -49,18 +50,15 @@
     </nav>
 </header>
 
+<div id="MargePremier"></div>
 
 <div class="jumbotron">
-    <h1 class="display-4">Historique Menu : </h1>
-    <br>
-    <%String fin="";
-        for (int i=0;i<liste.size();i++) {
-            fin+="<div class='menu'>";
-            fin+="<img src=\"eventMenuImage?id=" + liste.get(i) + "\""+">";
-            fin+="</div>";
-        }
-    %>
-    <%= fin%>
+    <h1 class="display-2">Bonjour <%=user.getNom()%>
+    </h1>
+</div>
+
+<div class="jumbotron">
+    <%=liste.getMenu()%>
 </div>
 
 <footer class="footer ">
