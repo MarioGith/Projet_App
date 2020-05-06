@@ -26,15 +26,18 @@
 <% if (request.getAttribute("message")!=null) {%>
 <p><%=request.getAttribute("message")%></p><%}%>
 
+
 <div class="container login-container" >
     <div class="row">
         <div class="col-md-6 login-form">
             <h3>Veuillez remplir le formulaire pour changer votre mot de passe</h3>
-            <form action="sendmailnewpass" method="get">
+            <form action="UpdatePwdServlet" method="post">
 
                 <div class="form-group">
-                    <input name="email" type="email" class="form-control"
-                           placeholder="Email" value=""/>
+                    <input name="NewPass" type="password" class="form-control"
+                           placeholder="Nouveau mot de passe" value=""/>
+                    <input type="hidden"  name="email" value=<%=request.getAttribute("email")%>>
+                    <input type="hidden"  name="token" value=<%=request.getAttribute("token")%>>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btnSubmit" value="OK" name="connect"/>

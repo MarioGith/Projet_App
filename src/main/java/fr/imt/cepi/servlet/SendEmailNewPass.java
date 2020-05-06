@@ -22,7 +22,7 @@ public class SendEmailNewPass extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String newpass= request.getParameter("Newpass");
+       // String newpass= request.getParameter("Newpass");
         String email = request.getParameter("email");
         Connection con = (Connection) getServletContext().getAttribute("DBConnection");
         PreparedStatement ps = null;
@@ -41,7 +41,7 @@ public class SendEmailNewPass extends HttpServlet {
 
             if (rs.first()) {
 
-                if (rs.getBoolean("valide")) { // On envoie le mail
+                if (rs.getBoolean("valide")) {
 
                     try {
                         ps = con.prepareStatement("UPDATE tst.utilisateurs SET token=? where email =?");
@@ -58,8 +58,8 @@ public class SendEmailNewPass extends HttpServlet {
                     // Envoie de l'email de confirmation de changement de password
                     String recipient = email;
                     String subject = "Confirmez votre changement de mot de passe AppEvent";
-                    String content = "Veuillez cliquer sur ce lien pour confirmer votre changement de mot de passe : "+"http://localhost:8080/Gradle___org_example___IJServeltExample_1_0_SNAPSHOT_war/ForgetPwdServlet?token="+token+"&newpass="+newpass+"&email="+email;
-                    request.setAttribute("message","<font color=green>"+ "Un email de confirmation vient de vous être envoyé, cliquez sur le lien qu'il contient pour confirmer le changement de mot de passe</font>");
+                    String content = "Veuillez cliquer sur ce lien pour confirmer votre changement de mot de passe : "+"http://localhost:8080/Gradle___org_example___IJServeltExample_1_0_SNAPSHOT_war/ValidateServletNewPass?token="+token+"&email="+email;
+                    request.setAttribute("message","<font color=green>"+ "Un email de confirmation vient de vous être envoyé, cliquez sur le lien qu'il contient pour changer de mot de passe</font>");
 
                     try {
                         EmailUtility.sendEmail(recipient, subject, content);
@@ -79,7 +79,7 @@ public class SendEmailNewPass extends HttpServlet {
 
                 } else {
                     RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
-                    errormsg = "Votre compte est en attente de confirmation. Confirmez votre compte ou réinscrivez vous avec la même adresse.";
+                    errormsg = "Votre compte est en attente de confirmation. Confirmez votre compte ou inscrivez vous à nouveau avec cette même adresse.";
                     request.setAttribute("message", "<font color=red>"+ errormsg +"</font>");
                     rd.include(request, response);
 

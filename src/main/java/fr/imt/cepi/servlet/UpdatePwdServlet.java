@@ -13,15 +13,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet("/ForgetPwdServlet")
-public class ForgetPwdServlet extends HttpServlet {
+@WebServlet("/UpdatePwdServlet")
+public class UpdatePwdServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
 
         String email = request.getParameter("email");
-        String newpass = request.getParameter("newpass");
+        String newpass = request.getParameter("NewPass");
         String token =request.getParameter("token");
 
         Connection con = (Connection) getServletContext().getAttribute("DBConnection");
