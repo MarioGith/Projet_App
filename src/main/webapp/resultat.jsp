@@ -64,7 +64,7 @@
     <nav class="navbar  navbar-expand-sm navbar-dark bg-dark " >
         <div class="navbar-collapse" >
             <ul class="navbar-nav ml-auto ">
-                <li class="nav-item"><a class="nav-link" href="#">Condition général d'utilisation</a></li>
+                <li class="nav-item"><a class="nav-link" href="confidentialite.html">Politique de condidentialité</a></li>
                 <li class="nav-item" ><a class="nav-link" href="#">Nous contacter</a></li>
             </ul>
 
