@@ -46,21 +46,34 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = null;
             try {
                 ps = con.prepareStatement(
-                        "select idutilisateur, nom, email, chambre, pp from tst.utilisateurs where email=? and password=? limit 1");
+                        "select idutilisateur, nom, email, chambre, pp, valide from tst.utilisateurs where email=? and password=? limit 1");
                 ps.setString(1, email);
                 ps.setString(2, password);
                 rs = ps.executeQuery();
 
-                if (rs != null && rs.next()) {
-                    Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), rs.getString("email"),
-                            rs.getInt("idutilisateur"),rs.getString("chambre"),rs.getBlob("pp"));
-                    logger.info("Utilisateur trouvé :" + utilisateur);
-                    HttpSession session = request.getSession();
-                    session.setAttribute("utilisateur", utilisateur);
-                    Liste_Event liste = new Liste_Event(request);
-                    request.setAttribute("liste", liste);
-                    RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
-                    rd.include(request, response);
+
+                boolean valide=false;
+
+
+                if (rs.first()) {
+                    valide = rs.getBoolean("valide");
+                    if(valide){
+                         Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), rs.getString("email"), rs.getInt("idutilisateur"),rs.getString("chambre"),rs.getBlob("pp"));
+                         logger.info("Utilisateur trouvé :" + utilisateur);
+                         HttpSession session = request.getSession();
+                         session.setAttribute("utilisateur", utilisateur);
+                         Liste_Event liste = new Liste_Event(request);
+                         request.setAttribute("liste", liste);
+                         RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+                         rd.include(request, response);}
+
+                    else{
+                        RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+                        logger.error("Le compte n'est pas validé =" + email);
+                        request.setAttribute("message", "<font color=red>" + "Le compte n'est pas validé, un mail de confirmation vous à déjà été envoyé, cliquez sur le lien qu'il contient pour valider votre compte.\nSi vous n'avez pas recu le mail, inscrivez vous à nouveau.  " + "</font>");
+                        rd.include(request, response);  }
+
+
 
                 } else {
                     RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
@@ -68,6 +81,10 @@ public class LoginServlet extends HttpServlet {
                     request.setAttribute("message", "<font color=red>" + "Utilisateur introuvable, veuillez vous enregistrer " + "</font>");
                     rd.include(request, response);
                 }
+
+
+
+
             } catch (SQLException e) {
                 e.printStackTrace();
                 logger.error("Problème d'accès à la base de données");

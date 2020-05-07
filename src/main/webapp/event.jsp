@@ -31,8 +31,8 @@
     Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
     Evenement event = (Evenement) request.getAttribute("evenement");
 %>
+
 <header>
-    <!-- Section pour accéder à toutes les pages -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <figure ><a class="navbar-brand" href="#"><img class="imageHome" src="images/logo.jpg"></a><!-- Ce sera le lien vers la page d'acceuil--></figure>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,14 +40,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <form action="GoHome" method="post"><input class="nav-link" type="submit" value="Acceuil" name="connect"/></form>
+                <form action="GoHome" method="post"><input class="nav-link" type="submit" value="Accueil" name="connect"/></form>
                 <form action="GoProfil" method="post"><input class="nav-link" type="submit" value="Profil" name="connect"/></form>
                 <li class="nav-item"><a class="nav-link" href="New_Event.html">Créer un évènement</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Création Profil</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://www.cercle-des-eleves.fr/evenements/" >Calendrier</a></li>
 
             </ul>
-            <form class="form-inline mt-2 mt-md-0" action="Search">
+            <form action="Search" class="form-inline mt-2 mt-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="recherche">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -55,41 +54,59 @@
     </nav>
 </header>
 
-<div class="jumbotron">
-    <h1 class="display-4">Event : <%=event.getType_event()%> <%=event.getOrganisateur()%> </h1>
-    <h2 class="display-3">Description : <%=event.getDescription()%></h2>
-    <h2 class="display-3">Prix : <%=event.getPrix()%></h2>
+<div id="MargePremier"></div>
+<div class="corps login-container">
+    <div class="jumbotron">
+        <div class="display-3"><%=event.getOrganisateur()%></div>
+        <div class="d-flex flex-row flex-wrap bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <%=event.getMenu()%>
+            </div>
+            <div class="p-2 bd-highlight ">
+                <div class="display-4">
+                    <p><%=event.getDescription()%></p>
+                </div>
+            </div>
+        </div>
+        <div class="display-4">Horaire : <p> <%=event.getDate()%></p> </div>
+        <div class="display-4">Prix : <p><%=event.getPrix()%></p></div>
+        <br>
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <label class="switch p-2 bd-highlight">
+                <input type="checkbox">
+                <span class="slider round"><%=event.getNbparticipants()%></span>
+            </label>
+            <div class="text1 p-2 bd-highlight">Nombre de participants</div>
+        </div>
+
+        <%if(event.getIdcreateur() == user.getId()){%>
+
+        <form action="Modify_Event1" method="post">
+            <input type="hidden" name="idevent" value= <%=event.getId()%> />
+            <button name="Modify" type="submit">
+                Modifier l'evenement
+            </button>
+        </form>
+        <%}%>
+
+        <%
+            String id = String.valueOf(event.getId());
+        %>
+
+        <form action="eventRegister" method="post">
+            <input type="hidden" name="idevenement" value= <%= id %> />
+            <input type="submit" class="btnSubmit" value="Interesser" name="interesser"/>
+        </form>
+
+        <form action="eventUnregister" method="post">
+            <input type="hidden" name="idevenement" value= <%= id %> />
+            <input type="submit" class="btnSubmit" value="Plus interesser" name="plusInteresser"/>
+        </form>
+    </div>
+
 </div>
 
-<%if(event.getIdcreateur() == user.getId()){%>
-    <!--<div class="bouton">
-        <a href="modify_event.jsp?var=<%=event.getId()%>">Modifier un event</a>
-    </div>-->
-    <form action="Modify_Event1" method="post">
-        <input type="hidden" name="idevent" value= <%=event.getId()%> />
-        <button name="Modify" type="submit">
-            Modifier l'evenement
-        </button>
-    </form>
-<%}%>
 
-<%
-    String id = String.valueOf(event.getId());
-%>
-
-<form action="eventRegister" method="post">
-    <div class="form-group">
-        <input type="hidden" name="idevenement" value= <%= id %> />
-        <input type="submit" class="btnSubmit" value="Interesser" name="interesser"/>
-    </div>
-</form>
-
-<form action="eventUnregister" method="post">
-    <div class="form-group">
-        <input type="hidden" name="idevenement" value= <%= id %> />
-        <input type="submit" class="btnSubmit" value="Plus interesser" name="plusInteresser"/>
-    </div>
-</form>
 
 </body>
 </html>

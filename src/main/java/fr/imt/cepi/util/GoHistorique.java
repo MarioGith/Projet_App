@@ -8,12 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "GoModifyProfil", urlPatterns = {"/GoModifyProfil"})
-public class GoModifyProfil extends HttpServlet {
+@WebServlet(name = "GoHistorique", urlPatterns = {"/GoHistorique"})
+public class GoHistorique extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("/modify_profil.jsp");
+        Liste_Menu liste = new Liste_Menu(request);
+        request.setAttribute("liste", liste);
+        RequestDispatcher rd = request.getRequestDispatcher("/historique.jsp");
         rd.include(request, response);
     }
 }

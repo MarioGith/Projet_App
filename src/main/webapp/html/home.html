@@ -8,13 +8,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Ma Servlet">
     <meta name="description" content="Example de servlet">
-    <link rel="apple-touch-icon" href="images/icons/icon-152.png">
+    <link rel="apple-touch-icon" href="../images/icons/icon-152.png">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
-    <link href="css/my.css" rel="stylesheet">
-    <link href="css/home.css" rel="stylesheet">
+    <link href="../css/my.css" rel="stylesheet">
+    <link href="../css/home.css" rel="stylesheet">
 
     <title>Accueil</title>
 </head>
@@ -22,23 +22,22 @@
 
 
 <header>
-
+    <!-- Section pour accéder à toutes les pages -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <figure ><a class="navbar-brand" href="#"><img class="imageHome" src="images/logo.jpg"></a><!-- Ce sera le lien vers la page d'acceuil--></figure>
+        <figure ><a class="navbar-brand" href="#"><img class="imageHome" src="../images/logo.jpg"></a><!-- Ce sera le lien vers la page d'acceuil--></figure>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <form action="GoHome" method="post"><input class="nav-link" type="submit" value="Accueil" name="connect"/></form>
-                <form action="GoProfil" method="post"><input class="nav-link" type="submit" value="Profil" name="connect"/></form>
-                <li class="nav-item"><a class="nav-link" href="New_Event.html">Créer un évènement</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Profil</a></li>
+                <li class="nav-item"><a class="nav-link" href="../New_Event.html">Créer un évènement</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Création Profil</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://www.cercle-des-eleves.fr/evenements/" >Calendrier</a></li>
-
             </ul>
-            <form action="Search" class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="recherche">
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
@@ -52,14 +51,13 @@
     </h1>
 </div>
 
-<div class="corps">
 <div class="jumbotron">
     <h1 class="display-2"> Liste des évènements de la semaine  </h1>
     <br>
     <div class="display-1"> Lundi
         <!--Le bloc div event correspond à UN événement avec la photo attribuée et la description -->
         <div class="event">
-            <img src="images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
+            <img src="../images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
             <p>Ici, on affiche la description des éventsIci, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents
@@ -70,12 +68,12 @@
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents</p>
             <div class="text-right">
-                <a class="pagevent" href="/event.html"> Voir plus </a>
+                <a class="pagevent" href="/html/event.html.html"> Voir plus </a>
             </div>
         </div>
         <hr class="bordure">
         <div class="event">
-            <img src="images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
+            <img src="../images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
             <p>Ici, on affiche la description des éventsIci, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents
@@ -86,7 +84,7 @@
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents</p>
             <div class="text-right">
-                <a class="pagevent" href="/event.html"> Voir plus </a>
+                <a class="pagevent" href="/html/event.html.html"> Voir plus </a>
             </div>
         </div>
     </div>
@@ -94,7 +92,7 @@
     <br>
     <div class="display-1"> Mardi
         <div class="event">
-            <img src="images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
+            <img src="../images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
             <p>Ici, on affiche la description des éventsIci, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents
@@ -105,7 +103,7 @@
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents</p>
             <div class="text-right">
-                <a class="pagevent" href="/event.html"> Voir plus </a>
+                <a class="pagevent" href="/html/event.html.html"> Voir plus </a>
             </div>
         </div>
         <hr class="bordure">
@@ -113,7 +111,7 @@
     <br>
     <div class="display-1"> Mercredi
         <div class="event">
-            <img src="images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
+            <img src="../images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
             <p>Ici, on affiche la description des éventsIci, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents
@@ -121,7 +119,7 @@
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents</p>
             <div class="text-right">
-                <a class="pagevent" href="/event.html"> Voir plus </a>
+                <a class="pagevent" href="/html/event.html.html"> Voir plus </a>
             </div>
         </div>
         <hr class="bordure">
@@ -129,18 +127,18 @@
     <br>
     <div class="display-1"> Jeudi
         <div class="event">
-            <img src="images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
+            <img src="../images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
             <p>Ici, on affiche la description des éventsIci, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents</p>
             <div class="text-right">
-                <a class="pagevent" href="/event.html"> Voir plus </a>
+                <a class="pagevent" href="/html/event.html.html"> Voir plus </a>
             </div>
         </div>
         <hr class="bordure">
         <div class="event">
-            <img src="images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
+            <img src="../images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
             <p>Ici, on affiche la description des éventsIci, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents
@@ -151,7 +149,7 @@
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents</p>
             <div class="text-right">
-                <a class="pagevent" href="/event.html"> Voir plus </a>
+                <a class="pagevent" href="/html/event.html.html"> Voir plus </a>
             </div>
         </div>
         <hr class="bordure">
@@ -159,13 +157,13 @@
     <br>
     <div class="display-1"> Vendredi
         <div class="event">
-            <img src="images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
+            <img src="../images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
             <p>Ici, on affiche la description des éventsIci, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents</p>
             <div class="text-right">
-                <a class="pagevent" href="/event.html"> Voir plus </a>
+                <a class="pagevent" href="/html/event.html.html"> Voir plus </a>
             </div>
         </div>
         <hr class="bordure">
@@ -173,7 +171,7 @@
     <br>
     <div class="display-1"> Samedi
         <div class="event">
-            <img src="images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
+            <img src="../images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
             <p>Ici, on affiche la description des éventsIci, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents
@@ -184,7 +182,7 @@
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents</p>
             <div class="text-right">
-                <a class="pagevent" href="/event.html"> Voir plus </a>
+                <a class="pagevent" href="/html/event.html.html"> Voir plus </a>
             </div>
         </div>
         <hr class="bordure">
@@ -192,7 +190,7 @@
     <br>
     <div class="display-1"> Dimanche
         <div class="event">
-            <img src="images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
+            <img src="../images/logo.jpg" class="logoevent rounded mx-auto d-block" alt="...">
             <p>Ici, on affiche la description des éventsIci, on affiche la description des évents
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents
@@ -203,13 +201,13 @@
                 Ici, on affiche la description des évents
                 Ici, on affiche la description des évents</p>
             <div class="text-right">
-                <a class="pagevent" href="/event.html"> Voir plus </a>
+                <a class="pagevent" href="/html/event.html.html"> Voir plus </a>
             </div>
         </div>
         <hr class="bordure"> <!--Pas nécessaire sur le dernier événement de la liste -->
     </div>
 </div>
-</div>
+
 <footer class="footer">
     <nav class="navbar  navbar-expand-sm navbar-dark bg-dark " >
         <div class="navbar-collapse" >

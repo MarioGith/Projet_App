@@ -15,7 +15,7 @@
             src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script
             src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="css/my.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
     <title>Page d'enregistrement</title>
 
 
@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group">
                     <input name="chambre" type="txt" class="form-control"
-                           placeholder="Numéro de chambre" value=""/>
+                           placeholder="Numéro de chambre ou adresse" value=""/>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btnSubmit" value="Enregistrer"/>
