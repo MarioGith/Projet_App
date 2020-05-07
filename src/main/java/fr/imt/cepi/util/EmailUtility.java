@@ -18,8 +18,8 @@ public class EmailUtility {
 
         String host = "mail.mines-ales.org";
         String port = "587";
-        String userName = "maxime.rouby@mines-ales.org";
-        String password = "z5pj4tqY";
+        String userName = "Mon adresse mail";
+        String password = "Mon mot de passe";
 
         // sets SMTP server properties
         Properties properties = new Properties();
