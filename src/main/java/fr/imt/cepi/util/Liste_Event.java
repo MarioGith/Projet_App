@@ -54,7 +54,7 @@ public class Liste_Event implements Serializable {
 			fin+="<br>";
 			fin+= "<div class='display-1'>"+liste.get(i).getDate();
 			fin+="<div class='event'>";
-			fin += "<img src=\"eventImage?id=" + liste.get(i).getId() + "\""+"class=\"logoevent rounded mx-auto d-block\" alt=\"...\">";
+			fin += liste.get(i).getImg();
 			fin+="<p>"+liste.get(i).getDescription()+"</p>";
 			fin+="<div class=\"text-right\">";
 			fin+="<form action=\"ShowEvent\" method=\"post\">";

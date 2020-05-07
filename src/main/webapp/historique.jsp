@@ -53,7 +53,7 @@
 <div id="MargePremier"></div>
 
 <div class="jumbotron">
-    <h1 class="display-2">Bonjour <%=user.getNom()%>
+    <h1 class="display-2">Voici les menus des evenements qui ont eu lieu depuis le debut de l'annee
     </h1>
 </div>
 
