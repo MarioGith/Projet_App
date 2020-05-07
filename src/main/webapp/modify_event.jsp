@@ -18,7 +18,7 @@
     <title>Modification event</title>
 </head>
 <body>
-<!--<%/**String id = request.getParameter("var");*/%>-->
+<!--<%/*String idevent = request.getParameter("var");*/%>-->
 <%
     Evenement event = (Evenement) request.getAttribute("evenement");
 %>
@@ -30,6 +30,9 @@
                 <div class="form-group">
                     <input name="organisateur" type="text" class="form-control"
                            placeholder=<%=event.getOrganisateur()%> value=""/>
+                </div>
+                <div class="form-group">
+                    <input type="hidden"  name="idevent" value=<%=event.getId()%>>
                 </div>
                 <div class="form-group">
                     <input name="typeevent" type="text" class="form-control"
