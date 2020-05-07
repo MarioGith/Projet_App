@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-md-6 login-form">
             <h3>Modifier l'Event </h3>
-            <form action="Modify_Event" method="post">
+            <form action="Modify_Event" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input name="organisateur" type="text" class="form-control"
                            placeholder=<%=event.getOrganisateur()%> value=""/>

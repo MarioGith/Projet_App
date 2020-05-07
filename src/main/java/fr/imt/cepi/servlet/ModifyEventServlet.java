@@ -1,5 +1,6 @@
 package fr.imt.cepi.servlet;
 
+import fr.imt.cepi.util.Evenement;
 import fr.imt.cepi.util.Liste_Event;
 import fr.imt.cepi.util.Utilisateur;
 import org.apache.log4j.Logger;
@@ -40,16 +41,18 @@ public class ModifyEventServlet extends HttpServlet {
         String organisateur = request.getParameter("organisateur");
         String typeevent = request.getParameter("typeevent");
         String date = request.getParameter("date");
-       // Part filePart = request.getPart("image_pre");
-       // Part filePart2 = request.getPart("menu");
+        Part filePart = request.getPart("image_pre");
+        Part filePart2 = request.getPart("menu");
       //  String datec = date+horaire;
 
 
         Connection con = (Connection) getServletContext().getAttribute("DBConnection");
         PreparedStatement ps = null;
+        PreparedStatement ps1 = null;
+        PreparedStatement ps2 = null;
         ResultSet rs = null;
 
-        if (organisateur!=""){
+        if (organisateur!="" ||  organisateur!=null){
             try {
                 ps = con.prepareStatement("UPDATE tst.evenement SET organisateur=? WHERE idevent=?");
                 ps.setString(1, organisateur);
@@ -59,7 +62,7 @@ public class ModifyEventServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
         }
-        if (typeevent!=""){
+        if (typeevent!="" ||  typeevent!=null){
             try {
                 ps = con.prepareStatement("UPDATE tst.evenement SET type_event=? WHERE idevent=?");
                 ps.setString(1, typeevent);
@@ -69,7 +72,7 @@ public class ModifyEventServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
         }
-        if (description!=""){
+        if (description!="" || description!=null){
             try {
                 ps = con.prepareStatement("UPDATE tst.evenement SET description=? WHERE idevent=?");
                 ps.setString(1, description);
@@ -79,7 +82,7 @@ public class ModifyEventServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
         }
-        if (prix!=""){
+        if (prix!="" || prix!= null){
             try {
                 ps = con.prepareStatement("UPDATE tst.evenement SET prix=? WHERE idevent=?");
                 ps.setString(1, prix);
@@ -89,16 +92,44 @@ public class ModifyEventServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
         }
-        if (description!=""){
+        if (filePart!=null){
             try {
-                ps = con.prepareStatement("UPDATE tst.evenement SET description=? WHERE idevent=?");
-                ps.setString(1, description);
-                ps.setInt(2,NumEvenement);
-                ps.executeUpdate();
+                ps1 = con.prepareStatement("UPDATE tst.evenement SET image_pre=? WHERE idevent=?");
+                ps1.setBinaryStream(1,filePart.getInputStream());
+                ps1.setInt(2,NumEvenement);
+                ps1.executeUpdate();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
+        if (filePart2!=null){
+            try {
+                ps2 = con.prepareStatement("UPDATE tst.evenement SET menu=? WHERE idevent=?");
+                ps2.setBinaryStream(1,filePart2.getInputStream());
+                ps2.setInt(2,NumEvenement);
+                ps2.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
+        try {
+            ps = con.prepareStatement("select organisateur,type_event,datec,description,prix,idevent,id_createur from tst.evenement where idevent = ?");
+            ps.setInt(1, NumEvenement);
+            rs = ps.executeQuery();
+            if (rs != null && rs.next()) {
+                Evenement evenement = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"), rs.getTimestamp("datec"), rs.getInt("id_createur"));
+                logger.info("Evenement trouvé" + evenement);
+                request.setAttribute("evenement", evenement);
+                RequestDispatcher rd = request.getRequestDispatcher("/event.jsp");
+                rd.include(request, response);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+            logger.error("Problème d'accès à la base de données");
+            throw new ServletException("Problème d'accès à la base de données");
+        }
+
         /*if (filePart!=null){
             try {
                 ps = con.prepareStatement("UPDATE tst.evenement SET image_pre=? WHERE idevent=?");
@@ -119,7 +150,5 @@ public class ModifyEventServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
         }*/
-        RequestDispatcher rd = request.getRequestDispatcher("/event.jsp");
-        rd.include(request, response);
     }
 }
