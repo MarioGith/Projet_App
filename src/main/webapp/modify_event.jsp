@@ -28,23 +28,19 @@
             <h3>Modifier l'Event </h3>
             <form action="Modify_Event" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input name="organisateur" type="text" class="form-control"
-                           placeholder=<%=event.getOrganisateur()%> value=""/>
+                    <input name="organisateur" type="text" class="form-control" value=<%=event.getOrganisateur()%>>
                 </div>
                 <div class="form-group">
                     <input type="hidden"  name="idevent" value=<%=event.getId()%>>
                 </div>
                 <div class="form-group">
-                    <input name="typeevent" type="text" class="form-control"
-                           placeholder=<%=event.getType_event()%> value=""/>
+                    <input name="typeevent" type="text" class="form-control" value=<%=event.getType_event()%>>
                 </div>
                 <div class="form-group">
-                    <input name="description" type="text" class="form-control "
-                           placeholder=<%=event.getDescription()%> value=""/>
+                    <input name="description" type="text" class="form-control " value=<%=event.getDescription()%>>
                 </div>
                 <div class="form-group">
-                    <input name="prix" type="text" class="form-control"
-                           placeholder=<%=event.getPrix()%> value=""/>
+                    <input name="prix" type="text" class="form-control" value=<%=event.getPrix()%>>
                 </div>
                 <div class="form-group">
                     <input name="horaire" type="time" class="form-control"/>
@@ -53,10 +49,10 @@
                     <input name="date" type="date" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <input type="file" name="image_pre" size="50" />
+                    <input type="file" value=null name="image_pre" size="50" />
                 </div>
                 <div class="form-group">
-                    <input type="file" name="menu" size="50" />
+                    <input type="file" value=null name="menu" size="50" />
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btnSubmit" value="Modifier" name="modify"/>

@@ -52,7 +52,7 @@ public class ModifyEventServlet extends HttpServlet {
         PreparedStatement ps2 = null;
         ResultSet rs = null;
 
-        if (organisateur!="" ||  organisateur!=null){
+
             try {
                 ps = con.prepareStatement("UPDATE tst.evenement SET organisateur=? WHERE idevent=?");
                 ps.setString(1, organisateur);
@@ -61,8 +61,6 @@ public class ModifyEventServlet extends HttpServlet {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-        }
-        if (typeevent!="" ||  typeevent!=null){
             try {
                 ps = con.prepareStatement("UPDATE tst.evenement SET type_event=? WHERE idevent=?");
                 ps.setString(1, typeevent);
@@ -71,8 +69,6 @@ public class ModifyEventServlet extends HttpServlet {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-        }
-        if (description!="" || description!=null){
             try {
                 ps = con.prepareStatement("UPDATE tst.evenement SET description=? WHERE idevent=?");
                 ps.setString(1, description);
@@ -81,8 +77,6 @@ public class ModifyEventServlet extends HttpServlet {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-        }
-        if (prix!="" || prix!= null){
             try {
                 ps = con.prepareStatement("UPDATE tst.evenement SET prix=? WHERE idevent=?");
                 ps.setString(1, prix);
@@ -91,7 +85,6 @@ public class ModifyEventServlet extends HttpServlet {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-        }
         if (filePart!=null){
             try {
                 ps1 = con.prepareStatement("UPDATE tst.evenement SET image_pre=? WHERE idevent=?");
@@ -112,7 +105,6 @@ public class ModifyEventServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
         }
-
         try {
             ps = con.prepareStatement("select organisateur,type_event,datec,description,prix,idevent,id_createur from tst.evenement where idevent = ?");
             ps.setInt(1, NumEvenement);
