@@ -36,14 +36,14 @@ public class ModifyEventServlet extends HttpServlet {
         //Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
         int NumEvenement = Integer.parseInt(request.getParameter("idevent"));
         String description = request.getParameter("description");
-        String horaire = request.getParameter("horaire");
+
         String prix = request.getParameter("prix");
         String organisateur = request.getParameter("organisateur");
         String typeevent = request.getParameter("typeevent");
-        String date = request.getParameter("date");
+
         Part filePart = request.getPart("image_pre");
         Part filePart2 = request.getPart("menu");
-      //  String datec = date+horaire;
+
 
 
         Connection con = (Connection) getServletContext().getAttribute("DBConnection");
@@ -113,7 +113,7 @@ public class ModifyEventServlet extends HttpServlet {
                 Evenement evenement = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"), rs.getTimestamp("datec"), rs.getInt("id_createur"));
                 logger.info("Evenement trouvé" + evenement);
                 request.setAttribute("evenement", evenement);
-                RequestDispatcher rd = request.getRequestDispatcher("/event.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/modify_event.jsp");
                 rd.include(request, response);
             }
         }catch (SQLException e) {

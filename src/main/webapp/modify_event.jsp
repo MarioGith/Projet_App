@@ -22,44 +22,100 @@
 <%
     Evenement event = (Evenement) request.getAttribute("evenement");
 %>
-<div class="container login-container">
-    <div class="row">
-        <div class="col-md-6 login-form">
-            <h3>Modifier l'Event </h3>
-            <form action="Modify_Event" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input name="organisateur" type="text" class="form-control" value=<%=event.getOrganisateur()%>>
-                </div>
-                <div class="form-group">
-                    <input type="hidden"  name="idevent" value=<%=event.getId()%>>
-                </div>
-                <div class="form-group">
-                    <input name="typeevent" type="text" class="form-control" value=<%=event.getType_event()%>>
-                </div>
-                <div class="form-group">
-                    <input name="description" type="text" class="form-control " value=<%=event.getDescription()%>>
-                </div>
-                <div class="form-group">
-                    <input name="prix" type="text" class="form-control" value=<%=event.getPrix()%>>
-                </div>
-                <div class="form-group">
-                    <input name="horaire" type="time" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <input name="date" type="date" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <input type="file" value=null name="image_pre" size="50" />
-                </div>
-                <div class="form-group">
-                    <input type="file" value=null name="menu" size="50" />
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btnSubmit" value="Modifier" name="modify"/>
-                </div>
-            </form>
+<div class="row my-2">
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form">
+                <h3>Modifier l'Event </h3>
+                <form action="Modify_Event" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input name="organisateur" type="text" class="form-control" value=<%=event.getOrganisateur()%>>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden"  name="idevent" value=<%=event.getId()%>>
+                    </div>
+                    <div class="form-group">
+                        <input name="typeevent" type="text" class="form-control" value=<%=event.getType_event()%>>
+                    </div>
+                    <div class="form-group">
+                        <input name="description" type="text" class="form-control " value=<%=event.getDescription()%>>
+                    </div>
+                    <div class="form-group">
+                        <input name="prix" type="text" class="form-control" value=<%=event.getPrix()%>>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit" value="Modifier" name="modify"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form">
+                <h3>Modifier la date et l'heure </h3>
+                <form action="Modify_Date_Event" method="post" enctype="multipart/form-data">
+                    <h6>vous devez modifier la date et l'horraire</h6>
+                    <div class="form-group">
+                        <input type="hidden"  name="idevent" value=<%=event.getId()%>>
+                    </div>
+                    <div class="form-group">
+                        <input name="horaire" type="time" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <input name="date" type="date" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit" value="Modifier" name="modify"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form">
+                <h3>Modifier l'image de l'evenement </h3>
+                <form action="Modify_Image_Event" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="hidden"  name="idevent" value=<%=event.getId()%>>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="image_pre" size="50" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit" value="Modifier" name="modify"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form">
+                <h3>Modifier le menu </h3>
+                <form action="Modify_Menu_Event" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="hidden"  name="idevent" value=<%=event.getId()%>>
+                    </div>
+                    <div class="form-group">
+                        <input type="file"name="menu" size="50" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit" value="Modifier" name="modify"/>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+<form action="ShowEvent" method="post">
+    <div class="form-group">
+        <input type="hidden"  name="idevent" value=<%=event.getId()%>>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btnSubmit" value="Retour" name="modify"/>
+    </div>
+</form>
 </body>
 </html>
