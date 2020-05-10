@@ -37,6 +37,7 @@
             <ul class="navbar-nav mr-auto">
                 <form action="GoHome" method="post"><input class="nav-link" type="submit" value="Accueil" name="connect"/></form>
                 <form action="GoProfil" method="post"><input class="nav-link" type="submit" value="Profil" name="connect"/></form>
+                <form action="GoHistorique" method="post"><input class="nav-link" type="submit" value="Historique" name="connect"/></form>
                 <li class="nav-item"><a class="nav-link" href="New_Event.html">Créer un évènement</a></li>
                 <li class="nav-item"><a class="nav-link" href="http://www.cercle-des-eleves.fr/evenements/" >Calendrier</a></li>
 
@@ -63,7 +64,7 @@
     <nav class="navbar  navbar-expand-sm navbar-dark bg-dark " >
         <div class="navbar-collapse" >
             <ul class="navbar-nav ml-auto ">
-                <li class="nav-item"><a class="nav-link" href="#">Condition général d'utilisation</a></li>
+                <li class="nav-item"><a class="nav-link" href="confidentialite.html">Politique de condidentialité</a></li>
                 <li class="nav-item" ><a class="nav-link" href="#">Nous contacter</a></li>
             </ul>
 

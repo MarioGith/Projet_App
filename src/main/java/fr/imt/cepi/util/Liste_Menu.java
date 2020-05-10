@@ -1,7 +1,6 @@
 package fr.imt.cepi.util;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sound.midi.MidiEvent;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,10 +13,10 @@ public class Liste_Menu implements Serializable {
 
     private static final long serialVersionUID = 6297385302078200511L;
 
-    public ArrayList<Integer> liste = new ArrayList();
+    public ArrayList<Evenement> liste = new ArrayList();
 
     public Liste_Menu(HttpServletRequest request) {
-        ArrayList<Integer> id = new ArrayList();
+        ArrayList<Evenement> id = new ArrayList();
 
         Connection con = (Connection) request.getServletContext().getAttribute("DBConnection");
         PreparedStatement ps = null;
@@ -27,11 +26,12 @@ public class Liste_Menu implements Serializable {
 
         try {
             ps = con.prepareStatement(
-                    "select idevent from tst.evenement where datec < ? order by datec DESC");
+                    "select * from tst.evenement where datec < ? order by datec DESC");
             ps.setTimestamp(1,maintenant);
             rs = ps.executeQuery();
             while(rs.next()){
-                liste.add(rs.getInt("idevent"));
+                Evenement event = new Evenement(rs.getString("organisateur"),rs.getString("type_event"),rs.getInt("idevent"),rs.getString("description"),rs.getString("prix"),rs.getTimestamp("datec"), rs.getInt("id_createur"));
+                liste.add(event);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -43,9 +43,11 @@ public class Liste_Menu implements Serializable {
         String fin="";
         for (int i=0;i<liste.size();i++) {
             fin+="<br>";
+            fin+= "<div class='display-1'>"+"Ce menu a été fait par " + liste.get(i).getOrganisateur()+" le "+liste.get(i).getDate()+"<br>";
             fin+="<div class='event'>";
-            fin += "<img src=\"eventMenuImage?id=" + liste.get(i) + "\""+"class=\"logoevent rounded mx-auto d-block\" alt=\"...\">";
-             fin+="</div>";
+            fin += liste.get(i).getMenu();
+            fin+="</div>";
+            fin+="</div>";
             fin+="<br>";
         }
         return fin;

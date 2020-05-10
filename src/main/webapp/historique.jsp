@@ -53,7 +53,7 @@
 <div id="MargePremier"></div>
 
 <div class="jumbotron">
-    <h1 class="display-2">Bonjour <%=user.getNom()%>
+    <h1 class="display-2">Voici les menus des evenements qui ont eu lieu depuis le debut de l'annee
     </h1>
 </div>
 
@@ -65,7 +65,7 @@
     <nav class="navbar bottom navbar-expand-sm navbar-dark bg-dark " >
         <div class="navbar-collapse" >
             <ul class="navbar-nav ml-auto ">
-                <li class="nav-item"><a class="nav-link" href="#">Condition général d'utilisation</a></li>
+                <li class="nav-item"><a class="nav-link" href="confidentialite.html">Politique de condidentialité</a></li>
                 <li class="nav-item" ><a class="nav-link" href="#">Nous contacter</a></li>
             </ul>
 
