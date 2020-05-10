@@ -16,7 +16,7 @@
             src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script
             src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Veuillez renseignez votre adresse mail</title>
+    <title>Changez votre mot de passe</title>
     <link href="css/login.css" rel="stylesheet" >
 </head>
 

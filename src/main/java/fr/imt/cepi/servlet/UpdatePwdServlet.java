@@ -23,13 +23,13 @@ public class UpdatePwdServlet extends HttpServlet {
         String newpass = request.getParameter("NewPass");
         String token =request.getParameter("token");
         String errormsg=null;
-
         if (newpass==null || newpass.equals("")){
             errormsg="Le mot de passe est obligatoire";
             RequestDispatcher rd = request.getRequestDispatcher("/ForgetPwd2.jsp");
             request.setAttribute("message", "<font color=red>" + errormsg + "</font>");
             request.setAttribute("token",token);
             rd.forward(request, response);
+            return; // Sinon, la suite de la servlet va être executé, on ne le veut pas
         }
 
 
@@ -38,7 +38,6 @@ public class UpdatePwdServlet extends HttpServlet {
         int parallelism = 1; // currently not supported by Spring Security
         int memory = 4096;   // memory costs
         int iterations = 3;
-
         Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(saltLength,hashLength,parallelism,memory,iterations);
         String encodePass = argon2PasswordEncoder.encode(newpass);
 

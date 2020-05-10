@@ -23,7 +23,6 @@ public class SendEmailNewPass extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-       // String newpass= request.getParameter("Newpass");
         String email = request.getParameter("email");
         Connection con = (Connection) getServletContext().getAttribute("DBConnection");
         PreparedStatement ps = null;
@@ -65,8 +64,6 @@ public class SendEmailNewPass extends HttpServlet {
 
                         }
 
-
-
                     } catch (SQLException e) {
                         e.printStackTrace();
                         errormsg="Problème avec la DB";
@@ -94,7 +91,6 @@ public class SendEmailNewPass extends HttpServlet {
                     }
 
 
-
                 } else {
                     RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                     errormsg = "Votre compte est en attente de confirmation. Confirmez votre compte ou inscrivez vous à nouveau avec cette même adresse pour recevoir un nouveau mail de confirmation.";
@@ -104,7 +100,7 @@ public class SendEmailNewPass extends HttpServlet {
                 }
             } else {
                 errormsg = "Aucun compte n'est associé à cette adresse mail, créez vous un compte";
-                RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/ForgetPwd.jsp");
                 request.setAttribute("message", "<font color=red>"+ errormsg +"</font>");
                 rd.include(request, response);
             }
