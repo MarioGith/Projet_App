@@ -36,7 +36,6 @@
                 <div class="form-group">
                     <input name="NewPass" type="password" class="form-control"
                            placeholder="Nouveau mot de passe" value=""/>
-                    <input type="hidden"  name="email" value=<%=request.getAttribute("email")%>>
                     <input type="hidden"  name="token" value=<%=request.getAttribute("token")%>>
                 </div>
                 <div class="form-group">

@@ -3,6 +3,7 @@ package fr.imt.cepi.servlet;
 import fr.imt.cepi.util.Liste_Event;
 import fr.imt.cepi.util.Utilisateur;
 import org.apache.log4j.Logger;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -44,35 +45,48 @@ public class LoginServlet extends HttpServlet {
             Connection con = (Connection) request.getServletContext().getAttribute("DBConnection");
             PreparedStatement ps = null;
             ResultSet rs = null;
-            try {
-                ps = con.prepareStatement(
-                        "select idutilisateur, nom, email, chambre, pp, valide from tst.utilisateurs where email=? and password=? limit 1");
-                ps.setString(1, email);
-                ps.setString(2, password);
-                rs = ps.executeQuery();
 
+            Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder();
+
+         try {
+                ps = con.prepareStatement(
+                        "select idutilisateur, nom, email, chambre, pp, password,  valide from tst.utilisateurs where email=? limit 1");
+                ps.setString(1, email);
+                rs = ps.executeQuery();
 
                 boolean valide=false;
 
 
                 if (rs.first()) {
-                    valide = rs.getBoolean("valide");
-                    if(valide){
-                         Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), rs.getString("email"), rs.getInt("idutilisateur"),rs.getString("chambre"),rs.getBlob("pp"));
-                         logger.info("Utilisateur trouvé :" + utilisateur);
-                         HttpSession session = request.getSession();
-                         session.setAttribute("utilisateur", utilisateur);
-                         Liste_Event liste = new Liste_Event(request);
-                         request.setAttribute("liste", liste);
-                         RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
-                         rd.include(request, response);}
+                    String encodedpass=rs.getString("password");
+                    if (argon2PasswordEncoder.matches(password,encodedpass)) {
 
-                    else{
+
+                        valide = rs.getBoolean("valide");
+                        if (valide) {
+                            Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), rs.getString("email"), rs.getInt("idutilisateur"), rs.getString("chambre"), rs.getBlob("pp"));
+                            logger.info("Utilisateur trouvé :" + utilisateur);
+                            HttpSession session = request.getSession();
+                            session.setAttribute("utilisateur", utilisateur);
+                            Liste_Event liste = new Liste_Event(request);
+                            request.setAttribute("liste", liste);
+                            RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+                            rd.include(request, response);
+                        } else {
+                            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+                            logger.error("Le compte n'est pas validé =" + email);
+                            request.setAttribute("message", "<font color=red>" + "Le compte n'est pas validé, un mail de confirmation vous à déjà été envoyé, cliquez sur le lien qu'il contient pour valider votre compte.\nSi vous n'avez pas recu le mail, inscrivez vous à nouveau.  " + "</font>");
+                            rd.include(request, response);
+                        }
+
+                    }
+                    else {
                         RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
-                        logger.error("Le compte n'est pas validé =" + email);
-                        request.setAttribute("message", "<font color=red>" + "Le compte n'est pas validé, un mail de confirmation vous à déjà été envoyé, cliquez sur le lien qu'il contient pour valider votre compte.\nSi vous n'avez pas recu le mail, inscrivez vous à nouveau.  " + "</font>");
-                        rd.include(request, response);  }
+                        logger.error("Mauvais mdp");
+                        request.setAttribute("message", "<font color=red>" + "Le mot de passe n'est pas bon" + "</font>");
+                        rd.include(request, response);
 
+                    }
 
 
                 } else {

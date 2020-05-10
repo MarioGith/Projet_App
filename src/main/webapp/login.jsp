@@ -47,7 +47,7 @@
                     <a href="Register" class="ForgetPwd">Pas encore enregistré ?</a>
                 </div>
                     <div class="form-group">
-                        <a href="ForgetPwd.jsp" class="ForgetPwd">Mot de pass oublié ?</a>
+                        <a href="ForgetPwd.jsp" class="ForgetPwd">Mot de passe oublié ?</a>
                 </div>
             </form>
         </div>

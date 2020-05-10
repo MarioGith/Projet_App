@@ -2,6 +2,7 @@ package fr.imt.cepi.servlet;
 
 import fr.imt.cepi.util.Utilisateur;
 import org.apache.log4j.Logger;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,7 +23,7 @@ public class ModifyProfilServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String pass = request.getParameter("password1");
+		String pass = request.getParameter("password");
 		String cha = request.getParameter("chambre");
 
 		Part filePart = request.getPart("pp");
@@ -33,12 +34,21 @@ public class ModifyProfilServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
 		int id = user.getId();
-
 		// Si on veut modifier mdp
 		if (pass!=null){
 			try {
+
+				int saltLength = 8; // salt length in bytes
+				int hashLength = 8; // hash length in bytes
+				int parallelism = 1; // currently not supported by Spring Security
+				int memory = 4096;   // memory costs
+				int iterations = 3;
+
+				Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(saltLength,hashLength,parallelism,memory,iterations);
+				String encodePass = argon2PasswordEncoder.encode(pass);
+
 				ps = con.prepareStatement("UPDATE tst.utilisateurs SET password=? WHERE idutilisateur=?");
-				ps.setString(1, pass);
+				ps.setString(1, encodePass);
 				ps.setInt(2,id);
 				ps.executeUpdate();
 			} catch (SQLException throwables) {
