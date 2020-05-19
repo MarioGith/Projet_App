@@ -30,6 +30,7 @@
 <%
     Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
     Evenement event = (Evenement) request.getAttribute("evenement");
+    event.setNbparticipants(request);
 %>
 
 <header>

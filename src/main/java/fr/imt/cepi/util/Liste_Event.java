@@ -56,6 +56,7 @@ public class Liste_Event implements Serializable {
 			fin+="<div class='event'>";
 			fin += liste.get(i).getImg();
 			fin+="<p>"+liste.get(i).getDescription()+"</p>";
+			fin+="<p> Nombre de participants :"+liste.get(i).getNbparticipants()+"</p>";
 			fin+="<div class=\"text-right\">";
 			fin+="<form action=\"ShowEvent\" method=\"post\">";
 			fin+="<input type='hidden' value='"+liste.get(i).getId()+"' name='idevent'/>";

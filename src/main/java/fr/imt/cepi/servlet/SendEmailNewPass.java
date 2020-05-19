@@ -100,7 +100,7 @@ public class SendEmailNewPass extends HttpServlet {
                 }
             } else {
                 errormsg = "Aucun compte n'est associé à cette adresse mail, créez vous un compte";
-                RequestDispatcher rd = request.getRequestDispatcher("/ForgetPwd.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                 request.setAttribute("message", "<font color=red>"+ errormsg +"</font>");
                 rd.include(request, response);
             }
