@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>fr.imt.cepi.servlet.TestWeb</OriginalElement>
+  <nodes>
+    <node x="649.7153846153847" y="224.0">javax.servlet.annotation.MultipartConfig</node>
+    <node x="3100.0" y="686.0">fr.imt.cepi.servlet.TestWeb</node>
+    <node x="4628.0" y="686.0">fr.imt.cepi.servlet.RegisterServlet</node>
+    <node x="1908.0" y="686.0">fr.imt.cepi.servlet.EventRegisterServlet</node>
+    <node x="2536.0" y="686.0">fr.imt.cepi.util.GoHome</node>
+    <node x="3434.6153846153848" y="122.0">fr.imt.cepi.util.Liste_Menu</node>
+    <node x="1688.0" y="686.0">fr.imt.cepi.servlet.ModifyProfilServlet</node>
+    <node x="1108.0" y="686.0">fr.imt.cepi.servlet.ModifyPp</node>
+    <node x="1240.0" y="686.0">fr.imt.cepi.servlet.ModifyImageEventServlet</node>
+    <node x="2856.0" y="686.0">fr.imt.cepi.servlet.EventUnregisterServlet</node>
+    <node x="4816.0" y="686.0">fr.imt.cepi.servlet.LoginServlet</node>
+    <node x="432.0" y="686.0">fr.imt.cepi.servlet.ModifyEventServlet1</node>
+    <node x="652.0" y="686.0">fr.imt.cepi.servlet.ModifyDateEventServlet</node>
+    <node x="3582.6153846153848" y="122.0">fr.imt.cepi.util.Liste_Perso_Historique</node>
+    <node x="0.0" y="783.0">fr.imt.cepi.util.DBConnectionManager</node>
+    <node x="0.0" y="686.0">fr.imt.cepi.servlet.ModifyMenuEventServlet</node>
+    <node x="3592.0" y="686.0">fr.imt.cepi.servlet.UpdatePwdServlet</node>
+    <node x="1492.0" y="686.0">fr.imt.cepi.servlet.SendEmailNewPass</node>
+    <node x="4236.0" y="686.0">fr.imt.cepi.util.GoHistorique</node>
+    <node x="2385.948717948718" y="0.0">javax.servlet.ServletConfig</node>
+    <node x="2494.6153846153848" y="224.0">javax.servlet.http.HttpServlet</node>
+    <node x="2136.0" y="686.0">fr.imt.cepi.servlet.ValidateEmailNewPassServlet</node>
+    <node x="4980.0" y="686.0">fr.imt.cepi.util.GoProfil</node>
+    <node x="2557.948717948718" y="0.0">javax.servlet.Servlet</node>
+    <node x="4000.0" y="686.0">fr.imt.cepi.servlet.EventMenuImageServlet</node>
+    <node x="2966.6153846153848" y="122.0">fr.imt.cepi.util.Liste_Perso</node>
+    <node x="2652.0" y="686.0">fr.imt.cepi.servlet.EventImageServlet</node>
+    <node x="3040.6153846153848" y="0.0">java.io.Serializable</node>
+    <node x="2723.5384615384614" y="224.0">javax.servlet.annotation.WebServlet</node>
+    <node x="2662.6153846153848" y="122.0">fr.imt.cepi.util.Evenement</node>
+    <node x="3788.0" y="686.0">fr.imt.cepi.servlet.ProfilImageServlet</node>
+    <node x="2802.6153846153848" y="122.0">fr.imt.cepi.util.Liste_Search</node>
+    <node x="896.0" y="686.0">fr.imt.cepi.servlet.ModifyEventServlet</node>
+    <node x="3224.0" y="686.0">fr.imt.cepi.servlet.LogoutServlet</node>
+    <node x="4400.0" y="686.0">fr.imt.cepi.servlet.ValidateEmailServlet</node>
+    <node x="245.0" y="783.0">fr.imt.cepi.util.EmailUtility</node>
+    <node x="2482.6153846153848" y="122.0">javax.servlet.GenericServlet</node>
+    <node x="3122.6153846153848" y="122.0">fr.imt.cepi.util.Liste_Event</node>
+    <node x="244.0" y="686.0">fr.imt.cepi.servlet.NewEventServlet</node>
+    <node x="3396.0" y="686.0">fr.imt.cepi.servlet.ShowEventServlet</node>
+    <node x="3278.6153846153848" y="122.0">fr.imt.cepi.util.Utilisateur</node>
+    <node x="2420.0" y="686.0">fr.imt.cepi.util.Search</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="fr.imt.cepi.servlet.ModifyEventServlet1" target="javax.servlet.annotation.WebServlet">
+      <point x="66.66666666666663" y="-26.0" />
+      <point x="598.6666666666665" y="566.0" />
+      <point x="2735.846153846154" y="566.0" />
+      <point x="-51.69230769230762" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.EventRegisterServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="52.0" y="-26.0" />
+      <point x="2064.0" y="636.0" />
+      <point x="2770.3076923076924" y="636.0" />
+      <point x="-17.230769230769056" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ShowEventServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="44.0" y="-26.0" />
+      <point x="3528.0" y="456.0" />
+      <point x="2809.6923076923076" y="456.0" />
+      <point x="22.15384615384619" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.Liste_Perso_Historique" target="java.io.Serializable">
+      <point x="0.0" y="-26.0" />
+      <point x="3694.6153846153848" y="72.0" />
+      <point x="3175.6153846153848" y="72.0" />
+      <point x="63.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.NewEventServlet" target="javax.servlet.annotation.MultipartConfig">
+      <point x="-56.0" y="-26.0" />
+      <point x="272.0" y="396.0" />
+      <point x="685.7153846153847" y="396.0" />
+      <point x="-48.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyPp" target="javax.servlet.http.HttpServlet">
+      <point x="0.0" y="-26.0" />
+      <point x="1164.0" y="476.0" />
+      <point x="2523.3846153846157" y="476.0" />
+      <point x="-39.230769230769056" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.RegisterServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="42.0" y="-26.0" />
+      <point x="4754.0" y="336.0" />
+      <point x="2839.230769230769" y="336.0" />
+      <point x="51.69230769230762" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.Evenement" target="java.io.Serializable">
+      <point x="0.0" y="-26.0" />
+      <point x="2722.6153846153848" y="82.0" />
+      <point x="3067.6153846153848" y="82.0" />
+      <point x="-45.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.EventUnregisterServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-56.0" y="-26.0" />
+      <point x="2912.0" y="526.0" />
+      <point x="2570.4615384615386" y="526.0" />
+      <point x="7.846153846153811" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.EventUnregisterServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="56.0" y="-26.0" />
+      <point x="3024.0" y="516.0" />
+      <point x="2794.9230769230767" y="516.0" />
+      <point x="7.384615384615245" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.Search" target="javax.servlet.http.HttpServlet">
+      <point x="-24.0" y="-26.0" />
+      <point x="2444.0" y="536.0" />
+      <point x="2554.769230769231" y="536.0" />
+      <point x="-7.846153846153811" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.GoHistorique" target="javax.servlet.http.HttpServlet">
+      <point x="-36.0" y="-26.0" />
+      <point x="4272.0" y="386.0" />
+      <point x="2607.0769230769233" y="386.0" />
+      <point x="44.46153846153857" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.Search" target="javax.servlet.annotation.WebServlet">
+      <point x="24.0" y="-26.0" />
+      <point x="2492.0" y="656.0" />
+      <point x="2780.153846153846" y="656.0" />
+      <point x="-7.384615384615245" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyImageEventServlet" target="javax.servlet.annotation.MultipartConfig">
+      <point x="-77.33333333333326" y="-26.0" />
+      <point x="1278.6666666666667" y="396.0" />
+      <point x="805.7153846153847" y="396.0" />
+      <point x="72.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.UpdatePwdServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-44.0" y="-26.0" />
+      <point x="3636.0" y="446.0" />
+      <point x="2591.3846153846157" y="446.0" />
+      <point x="28.769230769230944" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ValidateEmailServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-52.0" y="-26.0" />
+      <point x="4452.0" y="366.0" />
+      <point x="2612.3076923076924" y="366.0" />
+      <point x="49.69230769230762" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ValidateEmailServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="52.0" y="-26.0" />
+      <point x="4556.0" y="356.0" />
+      <point x="2834.3076923076924" y="356.0" />
+      <point x="46.769230769230944" y="26.0" />
+    </edge>
+    <edge source="javax.servlet.GenericServlet" target="javax.servlet.ServletConfig">
+      <point x="-53.333333333333485" y="-26.0" />
+      <point x="2509.2820512820513" y="102.0" />
+      <point x="2461.948717948718" y="102.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ShowEventServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-44.0" y="-26.0" />
+      <point x="3440.0" y="466.0" />
+      <point x="2586.153846153846" y="466.0" />
+      <point x="23.538461538461434" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.GoHistorique" target="javax.servlet.annotation.WebServlet">
+      <point x="36.0" y="-26.0" />
+      <point x="4344.0" y="376.0" />
+      <point x="2829.3846153846152" y="376.0" />
+      <point x="41.84615384615381" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.Liste_Event" target="java.io.Serializable">
+      <point x="0.0" y="-26.0" />
+      <point x="3190.6153846153848" y="102.0" />
+      <point x="3121.6153846153848" y="102.0" />
+      <point x="9.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.EventRegisterServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-52.0" y="-26.0" />
+      <point x="1960.0" y="516.0" />
+      <point x="2544.3076923076924" y="516.0" />
+      <point x="-18.307692307692378" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyMenuEventServlet" target="javax.servlet.annotation.MultipartConfig">
+      <point x="-74.66666666666669" y="-26.0" />
+      <point x="37.333333333333485" y="386.0" />
+      <point x="661.7153846153847" y="386.0" />
+      <point x="-72.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.RegisterServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-42.0" y="-26.0" />
+      <point x="4670.0" y="346.0" />
+      <point x="2617.5384615384614" y="346.0" />
+      <point x="54.92307692307668" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.GoHome" target="javax.servlet.annotation.WebServlet">
+      <point x="24.0" y="-26.0" />
+      <point x="2608.0" y="666.0" />
+      <point x="2785.076923076923" y="666.0" />
+      <point x="-2.4615384615385665" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyPp" target="javax.servlet.annotation.WebServlet">
+      <point x="37.33333333333326" y="-26.0" />
+      <point x="1201.3333333333333" y="596.0" />
+      <point x="2750.6153846153843" y="596.0" />
+      <point x="-36.92307692307713" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.EventMenuImageServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-54.0" y="-26.0" />
+      <point x="4054.0" y="406.0" />
+      <point x="2601.846153846154" y="406.0" />
+      <point x="39.230769230769056" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyEventServlet" target="javax.servlet.http.HttpServlet">
+      <point x="0.0" y="-26.0" />
+      <point x="992.0" y="466.0" />
+      <point x="2518.153846153846" y="466.0" />
+      <point x="-44.46153846153857" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ProfilImageServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="48.0" y="-26.0" />
+      <point x="3932.0" y="416.0" />
+      <point x="2819.5384615384614" y="416.0" />
+      <point x="32.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.NewEventServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="56.0" y="-26.0" />
+      <point x="384.0" y="556.0" />
+      <point x="2730.9230769230767" y="556.0" />
+      <point x="-56.615384615384755" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyEventServlet" target="javax.servlet.annotation.MultipartConfig">
+      <point x="-64.0" y="-26.0" />
+      <point x="928.0" y="416.0" />
+      <point x="757.7153846153847" y="416.0" />
+      <point x="24.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.EventImageServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-46.0" y="-26.0" />
+      <point x="2698.0" y="536.0" />
+      <point x="2565.2307692307695" y="536.0" />
+      <point x="2.6153846153847553" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.Utilisateur" target="java.io.Serializable">
+      <point x="0.0" y="-26.0" />
+      <point x="3346.6153846153848" y="92.0" />
+      <point x="3139.6153846153848" y="92.0" />
+      <point x="27.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.SendEmailNewPass" target="javax.servlet.http.HttpServlet">
+      <point x="-44.0" y="-26.0" />
+      <point x="1536.0" y="496.0" />
+      <point x="2533.846153846154" y="496.0" />
+      <point x="-28.769230769230944" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.Liste_Perso" target="java.io.Serializable">
+      <point x="0.0" y="-26.0" />
+      <point x="3034.6153846153848" y="102.0" />
+      <point x="3103.6153846153848" y="102.0" />
+      <point x="-9.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyImageEventServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="77.33333333333326" y="-26.0" />
+      <point x="1433.3333333333333" y="606.0" />
+      <point x="2755.5384615384614" y="606.0" />
+      <point x="-32.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyMenuEventServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-1.4210854715202004E-14" y="-26.0" />
+      <point x="112.0" y="426.0" />
+      <point x="2497.2307692307695" y="426.0" />
+      <point x="-65.38461538461524" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyEventServlet1" target="javax.servlet.http.HttpServlet">
+      <point x="0.0" y="-26.0" />
+      <point x="532.0" y="446.0" />
+      <point x="2507.6923076923076" y="446.0" />
+      <point x="-54.92307692307713" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyProfilServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="50.0" y="-26.0" />
+      <point x="1838.0" y="626.0" />
+      <point x="2765.3846153846152" y="626.0" />
+      <point x="-22.15384615384619" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.GoProfil" target="javax.servlet.http.HttpServlet">
+      <point x="-28.0" y="-26.0" />
+      <point x="5008.0" y="306.0" />
+      <point x="2628.0" y="306.0" />
+      <point x="65.38461538461524" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ValidateEmailNewPassServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="66.0" y="-26.0" />
+      <point x="2334.0" y="646.0" />
+      <point x="2775.230769230769" y="646.0" />
+      <point x="-12.307692307692378" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.Liste_Menu" target="java.io.Serializable">
+      <point x="0.0" y="-26.0" />
+      <point x="3498.6153846153848" y="82.0" />
+      <point x="3157.6153846153848" y="82.0" />
+      <point x="45.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.GoHome" target="javax.servlet.http.HttpServlet">
+      <point x="-24.0" y="-26.0" />
+      <point x="-2.6153846153847553" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyDateEventServlet" target="javax.servlet.http.HttpServlet">
+      <point x="0.0" y="-26.0" />
+      <point x="764.0" y="456.0" />
+      <point x="2512.923076923077" y="456.0" />
+      <point x="-49.69230769230762" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.LogoutServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="38.0" y="-26.0" />
+      <point x="3338.0" y="476.0" />
+      <point x="2804.7692307692305" y="476.0" />
+      <point x="17.230769230769056" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ValidateEmailNewPassServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-66.0" y="-26.0" />
+      <point x="2202.0" y="526.0" />
+      <point x="2549.538461538462" y="526.0" />
+      <point x="-13.076923076922867" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyEventServlet1" target="javax.servlet.annotation.MultipartConfig">
+      <point x="-66.66666666666669" y="-26.0" />
+      <point x="465.3333333333335" y="406.0" />
+      <point x="709.7153846153847" y="406.0" />
+      <point x="-24.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.LogoutServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-38.0" y="-26.0" />
+      <point x="3262.0" y="486.0" />
+      <point x="2580.923076923077" y="486.0" />
+      <point x="18.307692307692378" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.GoProfil" target="javax.servlet.annotation.WebServlet">
+      <point x="28.0" y="-26.0" />
+      <point x="5064.0" y="296.0" />
+      <point x="2849.076923076923" y="296.0" />
+      <point x="61.53846153846143" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyDateEventServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="74.66666666666663" y="-26.0" />
+      <point x="838.6666666666665" y="576.0" />
+      <point x="2740.7692307692305" y="576.0" />
+      <point x="-46.769230769230944" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.TestWeb" target="javax.servlet.annotation.WebServlet">
+      <point x="26.0" y="-26.0" />
+      <point x="3178.0" y="496.0" />
+      <point x="2799.846153846154" y="496.0" />
+      <point x="12.307692307692378" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.LoginServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-36.0" y="-26.0" />
+      <point x="4852.0" y="326.0" />
+      <point x="2622.769230769231" y="326.0" />
+      <point x="60.15384615384619" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.TestWeb" target="javax.servlet.http.HttpServlet">
+      <point x="-26.0" y="-26.0" />
+      <point x="3126.0" y="506.0" />
+      <point x="2575.6923076923076" y="506.0" />
+      <point x="13.076923076922867" y="26.0" />
+    </edge>
+    <edge source="javax.servlet.GenericServlet" target="javax.servlet.Servlet">
+      <point x="0.0" y="-26.0" />
+      <point x="2562.6153846153848" y="102.0" />
+      <point x="2609.948717948718" y="102.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyDateEventServlet" target="javax.servlet.annotation.MultipartConfig">
+      <point x="-74.66666666666674" y="-26.0" />
+      <point x="689.3333333333333" y="416.0" />
+      <point x="733.7153846153847" y="416.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.UpdatePwdServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="44.0" y="-26.0" />
+      <point x="3724.0" y="436.0" />
+      <point x="2814.6153846153843" y="436.0" />
+      <point x="27.076923076922867" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyPp" target="javax.servlet.annotation.MultipartConfig">
+      <point x="-37.33333333333326" y="-26.0" />
+      <point x="1126.6666666666667" y="406.0" />
+      <point x="781.7153846153847" y="406.0" />
+      <point x="48.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ProfilImageServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-48.0" y="-26.0" />
+      <point x="3836.0" y="426.0" />
+      <point x="2596.6153846153848" y="426.0" />
+      <point x="34.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyEventServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="64.0" y="-26.0" />
+      <point x="1056.0" y="586.0" />
+      <point x="2745.6923076923076" y="586.0" />
+      <point x="-41.84615384615381" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyMenuEventServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="74.66666666666669" y="-26.0" />
+      <point x="186.66666666666652" y="546.0" />
+      <point x="2726.0" y="546.0" />
+      <point x="-61.53846153846143" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.LoginServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="36.0" y="-26.0" />
+      <point x="4924.0" y="316.0" />
+      <point x="2844.153846153846" y="316.0" />
+      <point x="56.615384615384755" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.EventImageServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="46.0" y="-26.0" />
+      <point x="2.4615384615385665" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.EventMenuImageServlet" target="javax.servlet.annotation.WebServlet">
+      <point x="54.0" y="-26.0" />
+      <point x="4162.0" y="396.0" />
+      <point x="2824.461538461538" y="396.0" />
+      <point x="36.92307692307668" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.util.Liste_Search" target="java.io.Serializable">
+      <point x="0.0" y="-26.0" />
+      <point x="2874.6153846153848" y="92.0" />
+      <point x="3085.6153846153848" y="92.0" />
+      <point x="-27.0" y="26.0" />
+    </edge>
+    <edge source="javax.servlet.GenericServlet" target="java.io.Serializable">
+      <point x="53.333333333333485" y="-26.0" />
+      <point x="2615.9487179487182" y="72.0" />
+      <point x="3049.6153846153848" y="72.0" />
+      <point x="-63.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyImageEventServlet" target="javax.servlet.http.HttpServlet">
+      <point x="0.0" y="-26.0" />
+      <point x="1356.0" y="486.0" />
+      <point x="2528.6153846153848" y="486.0" />
+      <point x="-34.0" y="26.0" />
+    </edge>
+    <edge source="javax.servlet.http.HttpServlet" target="javax.servlet.GenericServlet">
+      <point x="0.0" y="-26.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.NewEventServlet" target="javax.servlet.http.HttpServlet">
+      <point x="0.0" y="-26.0" />
+      <point x="328.0" y="436.0" />
+      <point x="2502.4615384615386" y="436.0" />
+      <point x="-60.15384615384619" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.SendEmailNewPass" target="javax.servlet.annotation.WebServlet">
+      <point x="44.0" y="-26.0" />
+      <point x="1624.0" y="616.0" />
+      <point x="2760.4615384615386" y="616.0" />
+      <point x="-27.076923076922867" y="26.0" />
+    </edge>
+    <edge source="fr.imt.cepi.servlet.ModifyProfilServlet" target="javax.servlet.http.HttpServlet">
+      <point x="-50.0" y="-26.0" />
+      <point x="1738.0" y="506.0" />
+      <point x="2539.0769230769233" y="506.0" />
+      <point x="-23.538461538461434" y="26.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8969874804381847" x="800.9055156236352" y="587.8497453534246" />
+  <SelectedNodes>
+    <node>fr.imt.cepi.servlet.TestWeb</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
